@@ -18,11 +18,14 @@ namespace Prototype
                 {
                     VerticalOptions = LayoutOptions.Center,
                     Children = {
-            new Label {
-               HorizontalTextAlignment = TextAlignment.Center,
-               Text = "Welcome to Xamarin Forms! Let's Begin..."
-            }
-         }
+                        new Label {
+                           HorizontalTextAlignment = TextAlignment.Center,
+                           Text = "Welcome to Xamarin Forms! Let's Begin..."
+                        }
+                    }
+                }
+            };
+        }
 
         protected override void OnStart()
         {
