@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Prototype.AppNavigationPageMaster"
+             Icon="hamburger.png"
+             Title="Master">
+
+    <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <Label  x:Name="LVSLabel"
+                Text="Lee Virtual School"
+                HorizontalOptions="Center"
+                Margin="10,15"
+                Style="{DynamicResource SubtitleStyle}"/>
+
+            <Label x:Name="DailyLoginLabel"
+                Margin="15,10"
+                Text="Daily Login" 
+                FontSize="Medium">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="DailyLoginClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label  x:Name="CalendarLabel"
+                Margin="15,10"
+                VerticalTextAlignment="Center" 
+                Text="Calendar" 
+                FontSize="Medium">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="CalendarClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label  x:Name="TeachersLabel"
+                Margin="15,10"
+                VerticalTextAlignment="Center" 
+                Text="Teachers" 
+                FontSize="Medium">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TeachersClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <!--SubMenu is in a separate StackLayout so the isVisible property only has to be changed once-->
+            <!--Current Settings in behind code only allows one subMenu to display at a time. Opening another
+                submenu will close the previous-->
+            <StackLayout  x:Name="TeacherSubMenuItems"
+                      AutomationId="1"
+                      HorizontalOptions="FillAndExpand" 
+                      IsVisible="False">
+
+                <Label  x:Name="ElementaryLabel"
+                    Margin="25,10"
+                    VerticalTextAlignment="Center" 
+                    Text="Elementary" 
+                    FontSize="Small">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ElementaryClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label  x:Name="SecondaryLabel"
+                    Margin="25,10"
+                    VerticalTextAlignment="Center" 
+                    Text="Secondary" 
+                    FontSize="Small">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SecondaryClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+
+            <Label  x:Name="ResourcesLabel"
+                Margin="15,10"
+                VerticalTextAlignment="Center" 
+                Text="Resources" 
+                FontSize="Medium">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ResourcesClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label  x:Name="ApplyLabel"
+                Margin="15,10"
+                VerticalTextAlignment="Center" 
+                Text="Apply" 
+                FontSize="Medium">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ApplyClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

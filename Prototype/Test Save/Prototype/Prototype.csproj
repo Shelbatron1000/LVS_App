@@ -38,30 +38,39 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Apply\ApplyPage.xaml.cs">
+    <Compile Include="ApplyPage.xaml.cs">
       <DependentUpon>ApplyPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppNavigation\AppNavigationPage.xaml.cs">
+    <Compile Include="AppNavigationPage.xaml.cs">
       <DependentUpon>AppNavigationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Calendar\CalendarPage.xaml.cs">
+    <Compile Include="CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppNavigation\AppNavigationPageMaster.xaml.cs">
+    <Compile Include="AppNavigationPageMaster.xaml.cs">
       <DependentUpon>AppNavigationPageMaster.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Teachers\ElementaryPage.xaml.cs">
-      <DependentUpon>ElementaryPage.xaml</DependentUpon>
+    <Compile Include="Grouping Test_2\AppNavPage.xaml.cs">
+      <DependentUpon>AppNavPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Home\HomePage.xaml.cs">
+    <Compile Include="Grouping Test_2\AppNavPageMasterxaml.xaml.cs">
+      <DependentUpon>AppNavPageMasterxaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItem.cs" />
+    <Compile Include="ContactsPage.xaml.cs">
+      <DependentUpon>ContactsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroupingTest\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroupingTest\MainViewModel.cs" />
+    <Compile Include="GroupingTest\Product.cs" />
+    <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LVS Resources\ResourcesPage.xaml.cs">
+    <Compile Include="ResourcesPage.xaml.cs">
       <DependentUpon>ResourcesPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Teachers\SecondaryPage.xaml.cs">
-      <DependentUpon>SecondaryPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -71,37 +80,43 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AppNavigation\AppNavigationPage.xaml">
+    <EmbeddedResource Include="AppNavigationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AppNavigation\AppNavigationPageMaster.xaml">
+    <EmbeddedResource Include="AppNavigationPageMaster.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Calendar\CalendarPage.xaml">
+    <EmbeddedResource Include="CalendarPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Home\HomePage.xaml">
+    <EmbeddedResource Include="ContactsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="LVS Resources\ResourcesPage.xaml">
+    <EmbeddedResource Include="HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Apply\ApplyPage.xaml">
+    <EmbeddedResource Include="ResourcesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ApplyPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -121,18 +136,23 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Teachers\ElementaryPage.xaml">
+    <EmbeddedResource Include="GroupingTest\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Teachers\SecondaryPage.xaml">
+    <EmbeddedResource Include="Grouping Test_2\AppNavPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Grouping Test_2\AppNavPageMasterxaml.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.4.0.38779\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

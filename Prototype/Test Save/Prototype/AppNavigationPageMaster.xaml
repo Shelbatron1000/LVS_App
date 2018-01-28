@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Prototype.AppNavigationPageMaster"
+             Icon="hamburger.png"
+             Title="Master">
+   
+    
+    <StackLayout>
+        <ListView x:Name="MenuItemsListView"
+              SeparatorVisibility="None"
+              HasUnevenRows="True"
+              ItemsSource="{Binding MenuItems}">
+            <ListView.Header>
+                <Label
+              Text="Lee Virtual School"
+              HorizontalOptions="Center"
+              Margin="10"
+              Style="{DynamicResource SubtitleStyle}"/>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout  HorizontalOptions="FillAndExpand">
+                            <Label VerticalOptions="FillAndExpand"
+                            Margin="15,10"
+                            VerticalTextAlignment="Center" 
+                            Text="{Binding Title}" 
+                            FontSize="Medium"
+                            IsVisible="{Binding IsVisible}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
