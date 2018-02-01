@@ -4,7 +4,15 @@
              x:Class="Prototype.AppNavigationPageMaster"
              Icon="hamburger.png"
              Title="Master">
-
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On Platform="iOS" Value="0, 20, 0, 0" />
+                <On Platform="Android" Value="0, 0, 0, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+    
     <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
@@ -14,10 +22,12 @@
                 Margin="10,15"
                 Style="{DynamicResource SubtitleStyle}"/>
 
-            <Label x:Name="DailyLoginLabel"
+            <Label  x:Name="DailyLoginLLabel"
                 Margin="15,10"
+                VerticalTextAlignment="Center" 
                 Text="Daily Login" 
-                FontSize="Medium">
+                FontSize="Medium"
+                AutomationId="1">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="DailyLoginClicked"/>
                 </Label.GestureRecognizers>
@@ -27,7 +37,8 @@
                 Margin="15,10"
                 VerticalTextAlignment="Center" 
                 Text="Calendar" 
-                FontSize="Medium">
+                FontSize="Medium"
+                AutomationId="2">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="CalendarClicked"/>
                 </Label.GestureRecognizers>
@@ -37,7 +48,8 @@
                 Margin="15,10"
                 VerticalTextAlignment="Center" 
                 Text="Teachers" 
-                FontSize="Medium">
+                FontSize="Medium"
+                AutomationId="3">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TeachersClicked"/>
                 </Label.GestureRecognizers>
@@ -47,7 +59,7 @@
             <!--Current Settings in behind code only allows one subMenu to display at a time. Opening another
                 submenu will close the previous-->
             <StackLayout  x:Name="TeacherSubMenuItems"
-                      AutomationId="1"
+                      AutomationId="4"
                       HorizontalOptions="FillAndExpand" 
                       IsVisible="False">
 
@@ -55,7 +67,8 @@
                     Margin="25,10"
                     VerticalTextAlignment="Center" 
                     Text="Elementary" 
-                    FontSize="Small">
+                    FontSize="Small"
+                    AutomationId="5">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ElementaryClicked"/>
                     </Label.GestureRecognizers>
@@ -65,7 +78,8 @@
                     Margin="25,10"
                     VerticalTextAlignment="Center" 
                     Text="Secondary" 
-                    FontSize="Small">
+                    FontSize="Small"
+                    AutomationId="6">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="SecondaryClicked"/>
                     </Label.GestureRecognizers>
@@ -77,7 +91,8 @@
                 Margin="15,10"
                 VerticalTextAlignment="Center" 
                 Text="Resources" 
-                FontSize="Medium">
+                FontSize="Medium"
+                AutomationId="7">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ResourcesClicked"/>
                 </Label.GestureRecognizers>
@@ -87,7 +102,8 @@
                 Margin="15,10"
                 VerticalTextAlignment="Center" 
                 Text="Apply" 
-                FontSize="Medium">
+                FontSize="Medium"
+                AutomationId="8">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ApplyClicked"/>
                 </Label.GestureRecognizers>

@@ -5,7 +5,15 @@
              Title="Resources">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Label Text="Resources Page" />
+            <Label  x:Name="NavToLogin"
+                Margin="15,10"
+                VerticalTextAlignment="Center" 
+                Text="Apply" 
+                FontSize="Medium">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ToLoginClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

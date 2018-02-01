@@ -23,10 +23,21 @@ namespace Prototype
 
         void ToHomePage()
         {
+            //Reset Boldness of last selected menu item
+            if (AppNavigationPageMaster.selected == null)
+            {
+                //do nothing
+            }
+            else
+            {
+                // make previous not bold
+                AppNavigationPageMaster.selected.FontAttributes = FontAttributes.None;
+                
+            }
+
             var page = (Page)Activator.CreateInstance(typeof(HomePage));
             Detail = new NavigationPage(page);
             IsPresented = false;
-
         }
 
     }
