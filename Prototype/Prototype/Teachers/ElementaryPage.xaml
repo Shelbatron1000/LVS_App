@@ -5,7 +5,8 @@
              Title="Elementary">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Label Text="Elementary Page" />
+            <Label Text="Elementary Teachers" HorizontalOptions="Center" FontSize="Medium" />
+            <ListView BackgroundColor="WhiteSmoke"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
