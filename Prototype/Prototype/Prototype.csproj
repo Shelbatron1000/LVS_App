@@ -50,8 +50,8 @@
     <Compile Include="AppNavigation\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DailyLoginWebView.xaml.cs">
-      <DependentUpon>DailyLoginWebView.xaml</DependentUpon>
+    <Compile Include="AttendanceWebView.xaml.cs">
+      <DependentUpon>AttendanceWebView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Teachers\ElementaryPage.xaml.cs">
       <DependentUpon>ElementaryPage.xaml</DependentUpon>
@@ -122,7 +122,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DailyLoginWebView.xaml">
+    <EmbeddedResource Include="AttendanceWebView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -136,6 +136,9 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.4.0.91020\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.iOS">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Xamarin.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
