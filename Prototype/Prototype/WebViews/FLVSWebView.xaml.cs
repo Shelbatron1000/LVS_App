@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Prototype
+namespace Prototype.WebViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DailyLoginWebView : ContentPage
+    public partial class FLVSWebView : ContentPage
     {
-        public DailyLoginWebView()
+        public FLVSWebView()
         {
             InitializeComponent();
         }

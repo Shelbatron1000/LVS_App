@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prototype.AppNavigationPageMaster"
              Icon="hamburger.png"
-             Title="Master">
+             Title="Master"
+             BackgroundColor="#3399ff">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <OnPlatform.Platforms>
@@ -12,44 +13,53 @@
             </OnPlatform.Platforms>
         </OnPlatform>
     </ContentPage.Padding>
-    
+
+
+
     <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
+            <Image x:Name="logo"
+                   Source="logo_lee_virtual_school.png" />
+            
             <Label  x:Name="LVSLabel"
-                Text="Lee Virtual School"
-                HorizontalOptions="Center"
-                Margin="10,15"
-                Style="{DynamicResource SubtitleStyle}"/>
+                    Text="Lee Virtual School"
+                    HorizontalOptions="Center"
+                    Margin="10,5"
+                    TextColor="White" 
+                    Font="Bold,20"/>
 
-            <Label  x:Name="DailyLoginLLabel"
-                Margin="15,10"
-                VerticalTextAlignment="Center" 
-                Text="Daily Login" 
-                FontSize="Medium"
-                AutomationId="1">
+            <Label  x:Name="AttendanceLabel"
+                    Margin="15,10"
+                    VerticalTextAlignment="Center" 
+                    Text="Attendance" 
+                    FontSize="Medium"
+                    AutomationId="1"
+                    TextColor="White" >
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="DailyLoginClicked"/>
+                    <TapGestureRecognizer Tapped="AttendanceClicked"/>
                 </Label.GestureRecognizers>
             </Label>
 
             <Label  x:Name="CalendarLabel"
-                Margin="15,10"
-                VerticalTextAlignment="Center" 
-                Text="Calendar" 
-                FontSize="Medium"
-                AutomationId="2">
+                    Margin="15,10"
+                    VerticalTextAlignment="Center" 
+                    Text="Calendar" 
+                    FontSize="Medium"
+                    AutomationId="2"
+                    TextColor="White" >
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="CalendarClicked"/>
                 </Label.GestureRecognizers>
             </Label>
 
             <Label  x:Name="TeachersLabel"
-                Margin="15,10"
-                VerticalTextAlignment="Center" 
-                Text="Teachers" 
-                FontSize="Medium"
-                AutomationId="3">
+                    Margin="15,10"
+                    VerticalTextAlignment="Center" 
+                    Text="Teachers" 
+                    FontSize="Medium"
+                    AutomationId="3"
+                TextColor="White" >
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TeachersClicked"/>
                 </Label.GestureRecognizers>
@@ -64,48 +74,88 @@
                       IsVisible="False">
 
                 <Label  x:Name="ElementaryLabel"
-                    Margin="25,10"
-                    VerticalTextAlignment="Center" 
-                    Text="Elementary" 
-                    FontSize="Small"
-                    AutomationId="5">
+                        Margin="25,10"
+                        VerticalTextAlignment="Center" 
+                        Text="Elementary" 
+                        FontSize="Small"
+                        AutomationId="5"
+                        TextColor="White" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ElementaryClicked"/>
                     </Label.GestureRecognizers>
                 </Label>
 
                 <Label  x:Name="SecondaryLabel"
-                    Margin="25,10"
-                    VerticalTextAlignment="Center" 
-                    Text="Secondary" 
-                    FontSize="Small"
-                    AutomationId="6">
+                        Margin="25,10"
+                        VerticalTextAlignment="Center" 
+                        Text="Secondary" 
+                        FontSize="Small"
+                        AutomationId="6"
+                        TextColor="White">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="SecondaryClicked"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label  x:Name="AppointmentsLabel"
+                        Margin="25,10"
+                        VerticalTextAlignment="Center" 
+                        Text="Appointments" 
+                        FontSize="Small"
+                        AutomationId="7"
+                        TextColor="White">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AppointmentsClicked"/>
                     </Label.GestureRecognizers>
                 </Label>
 
             </StackLayout>
 
             <Label  x:Name="ResourcesLabel"
-                Margin="15,10"
-                VerticalTextAlignment="Center" 
-                Text="Resources" 
-                FontSize="Medium"
-                AutomationId="7">
+                    Margin="15,10"
+                    VerticalTextAlignment="Center" 
+                    Text="Resources" 
+                    FontSize="Medium"
+                    AutomationId="8"
+                    TextColor="White">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ResourcesClicked"/>
                 </Label.GestureRecognizers>
             </Label>
 
             <Label  x:Name="ApplyLabel"
-                Margin="15,10"
-                VerticalTextAlignment="Center" 
-                Text="Apply" 
-                FontSize="Medium"
-                AutomationId="8">
+                    Margin="15,10"
+                    VerticalTextAlignment="Center" 
+                    Text="Apply" 
+                    FontSize="Medium"
+                    AutomationId="9"
+                    TextColor="White">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ApplyClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label  x:Name="ParentPortalLabel"
+                    Margin="15,10"
+                    VerticalTextAlignment="Center" 
+                    Text="Parent Portal" 
+                    FontSize="Medium"
+                    AutomationId="10"
+                    TextColor="White">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ParentPortalClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label  x:Name="FLVSLabel"
+                    Margin="15,10"
+                    VerticalTextAlignment="Center" 
+                    Text="FLVS Login" 
+                    FontSize="Medium"
+                    AutomationId="11"
+                    TextColor="White">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="FLVSClicked"/>
                 </Label.GestureRecognizers>
             </Label>
 

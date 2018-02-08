@@ -5,7 +5,13 @@
              Title="Home">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Label Text="Home Page"/>
+            <Label x:Name="welcomeLabel" 
+                   Text="Welcome to Lee Virtual School!"
+                   Font="Bold,20"
+                   HorizontalOptions="Center"/>
+            <WebView x:Name="webView"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

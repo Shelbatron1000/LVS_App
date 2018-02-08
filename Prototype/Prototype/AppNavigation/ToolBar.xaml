@@ -4,13 +4,13 @@
              x:Class="Prototype.AppNavigationPage"
              xmlns:pages="clr-namespace:Prototype">
     <MasterDetailPage.ToolbarItems>
-        <ToolbarItem x:Name="home" Order="Primary"  Icon="home_icon.png" Text="Home" Priority="0" Clicked="ToHomePage"/>
+        <ToolbarItem x:Name="home" Order="Primary"  Icon="home_icon.png" Text="Home" Priority="0" Clicked="ToHomePage" />
     </MasterDetailPage.ToolbarItems>
     <MasterDetailPage.Master>
     <pages:AppNavigationPageMaster x:Name="MasterPage" />
   </MasterDetailPage.Master>
   <MasterDetailPage.Detail>
-    <NavigationPage>
+    <NavigationPage BarTextColor="White">
       <x:Arguments>
         <pages:HomePage />
       </x:Arguments>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Android.Content;
+using Android.Telephony;
+using Prototype.WebViews;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -31,14 +34,19 @@ namespace Prototype
             var page = (ContentPage)Activator.CreateInstance(p);
             App app = Application.Current as App;
             MasterDetailPage md = (MasterDetailPage)app.MainPage;
-            md.Detail = new NavigationPage(page);
+            var whiteNav = new NavigationPage(page)
+            {
+                BarTextColor = Color.White
+            };
+
+            md.Detail = whiteNav;
             md.IsPresented = false;
         }
 
-        public void DailyLoginClicked(object sender, EventArgs e)
+        public void AttendanceClicked(object sender, EventArgs e)
         {
-            //Implement WebView here
-            BoldLabels(DailyLoginLLabel);
+            Navigate(typeof(AttendanceWebView));
+            BoldLabels(AttendanceLabel);
         }
 
         public void CalendarClicked(object sender, EventArgs e)
@@ -65,6 +73,12 @@ namespace Prototype
             BoldLabels(SecondaryLabel);
         }
 
+        public void AppointmentsClicked(object sender, EventArgs e)
+        {
+            Navigate(typeof(AppointmentsWebView));
+            BoldLabels(AppointmentsLabel);
+        }
+
         public void ResourcesClicked(object sender, EventArgs e)
         {
             Navigate(typeof(ResourcesPage));
@@ -75,6 +89,41 @@ namespace Prototype
         {
             Navigate(typeof(ApplyPage));
             BoldLabels(ApplyLabel);
+        }
+
+        public void ParentPortalClicked(object sender, EventArgs e)
+        {
+            //The FOCUS website does not render correctly for an in-app webview for Android but does so for iOS
+            switch (Device.RuntimePlatform)
+            {
+                case Device.iOS:
+                    Navigate(typeof(ParentPortalWebView));
+                    break;
+                case Device.Android:
+                    if (Device.Idiom == TargetIdiom.Phone)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Mobile");
+                        Device.OpenUri(new Uri("https://lee.focusschoolsoftware.com/focus/"));                 
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine("Tablet");
+                        Navigate(typeof(ParentPortalWebView));
+                    }                
+                    break;
+                default:
+                    Device.OpenUri(new Uri("https://lee.focusschoolsoftware.com/focus/"));
+                    break;
+            }
+
+            BoldLabels(ParentPortalLabel);
+        }
+
+        public void FLVSClicked(object sender, EventArgs e)
+        {
+            //FLVS does not have a mobile app yet... 
+            Navigate(typeof(FLVSWebView));
+            BoldLabels(FLVSLabel);
         }
 
         //this method hides or shows submenus

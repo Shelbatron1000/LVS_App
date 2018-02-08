@@ -15,6 +15,9 @@ namespace Prototype
         public HomePage()
         {
             InitializeComponent();
+            var htmlSource = new HtmlWebViewSource();
+            htmlSource.Html = @" <a class=""twitter-timeline"" href=""https://twitter.com/LeeVirtual?ref_src=twsrc%5Etfw""> Tweets by LeeVirtual</a><script async src=""https://platform.twitter.com/widgets.js"" charset=""utf-8""></script>";
+            webView.Source = htmlSource;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Prototype
 
         public void ToLoginClicked(object sender, EventArgs e)
         {
-            DailyLoginWebView newPage = new DailyLoginWebView();
+            AttendanceWebView newPage = new AttendanceWebView();
 
             Navigation.PushAsync(newPage);
         }

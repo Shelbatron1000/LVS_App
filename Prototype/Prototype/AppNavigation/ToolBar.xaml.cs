@@ -36,7 +36,11 @@ namespace Prototype
             }
 
             var page = (Page)Activator.CreateInstance(typeof(HomePage));
-            Detail = new NavigationPage(page);
+            var whiteNav = new NavigationPage(page)
+            {
+                BarTextColor = Color.White
+            };
+            Detail = whiteNav;
             IsPresented = false;
         }
 
