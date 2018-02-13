@@ -73,12 +73,6 @@ namespace Prototype
             BoldLabels(SecondaryLabel);
         }
 
-        public void AppointmentsClicked(object sender, EventArgs e)
-        {
-            Navigate(typeof(AppointmentsWebView));
-            BoldLabels(AppointmentsLabel);
-        }
-
         public void ResourcesClicked(object sender, EventArgs e)
         {
             Navigate(typeof(ResourcesPage));

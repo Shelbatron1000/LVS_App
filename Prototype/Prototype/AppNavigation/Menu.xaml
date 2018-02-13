@@ -96,19 +96,6 @@
                         <TapGestureRecognizer Tapped="SecondaryClicked"/>
                     </Label.GestureRecognizers>
                 </Label>
-
-                <Label  x:Name="AppointmentsLabel"
-                        Margin="25,10"
-                        VerticalTextAlignment="Center" 
-                        Text="Appointments" 
-                        FontSize="Small"
-                        AutomationId="7"
-                        TextColor="White">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="AppointmentsClicked"/>
-                    </Label.GestureRecognizers>
-                </Label>
-
             </StackLayout>
 
             <Label  x:Name="ResourcesLabel"

@@ -51,9 +51,14 @@
     <Compile Include="AppNavigation\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WebViews\AppointmentsWebView.xaml.cs">
-      <DependentUpon>AppointmentsWebView.xaml</DependentUpon>
+    <Compile Include="Home\FacebookFeed.xaml.cs">
+      <DependentUpon>FacebookFeed.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Home\TwitterFeed.xaml.cs">
+      <DependentUpon>TwitterFeed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IDialer.cs" />
+    <Compile Include="Teachers\TeacherInfo.cs" />
     <Compile Include="WebViews\AttendanceWebView.xaml.cs">
       <DependentUpon>AttendanceWebView.xaml</DependentUpon>
     </Compile>
@@ -166,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Teachers\ElementaryTeachers.csv" />
     <None Include="Teachers\ElementaryTeachers.xlsx" />
   </ItemGroup>
   <ItemGroup>
@@ -181,7 +187,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="WebViews\AppointmentsWebView.xaml">
+    <EmbeddedResource Include="Home\TwitterFeed.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Home\FacebookFeed.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

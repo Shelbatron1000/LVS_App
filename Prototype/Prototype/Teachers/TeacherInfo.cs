@@ -24,7 +24,7 @@ namespace Prototype{
             GetTeacherData();
         }
 
-        private void GetTeacherData()
+    private void GetTeacherData()
         {
             try
             {

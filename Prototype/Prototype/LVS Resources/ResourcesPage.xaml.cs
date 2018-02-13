@@ -16,12 +16,5 @@ namespace Prototype
         {
             InitializeComponent();
         }
-
-        public void ToLoginClicked(object sender, EventArgs e)
-        {
-            AttendanceWebView newPage = new AttendanceWebView();
-
-            Navigation.PushAsync(newPage);
-        }
     }
 }

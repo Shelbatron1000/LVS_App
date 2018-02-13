@@ -112,6 +112,7 @@ namespace Prototype
             {
                 MainLayout.Children.Remove(layout);
                 EnableListView();
+                listView.SelectedItem = null;
             };
             MainLayout.Children.Add(layout);
         }
@@ -130,6 +131,8 @@ namespace Prototype
 
 
         }
+
+
 
     }
 }

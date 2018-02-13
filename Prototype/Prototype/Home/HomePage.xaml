@@ -4,14 +4,95 @@
              x:Class="Prototype.HomePage"
              Title="Home">
     <ContentPage.Content>
-        <StackLayout Padding="10">
-            <Label x:Name="welcomeLabel" 
-                   Text="Welcome to Lee Virtual School!"
-                   Font="Bold,20"
-                   HorizontalOptions="Center"/>
-            <WebView x:Name="webView"
-                     VerticalOptions="FillAndExpand"
-                     HorizontalOptions="FillAndExpand"/>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Padding="10">
+                
+                <!--Header-->
+                <Label 
+                    x:Name="welcomeLabel" 
+                    Text="Welcome to Lee Virtual School!"
+                    Font="Bold,20"
+                    HorizontalOptions="Center"
+                    TextColor="Black"/>
+                <Image 
+                    x:Name="LVSPic"
+                    Source="lvs_group.jpg"
+                    HorizontalOptions="Center"/>
+                
+                <!--Mission-->
+                <Label 
+                    x:Name="missionLabel"
+                    Text="Our Mission"
+                    Font="Bold,15"
+                    HorizontalOptions="Start"
+                    TextColor="Black"/>
+                <Label 
+                    x:Name="missionText"
+                    LineBreakMode="WordWrap"
+                    Text="The mission of The Lee Virtual School is to expand access for all students to rigorous, relevant curriculum that incorporates skills and knowledge students need to succeed in the 21st century, delivered electronically with dynamic scheduling and pacing."
+                    FontSize="Small"
+                    TextColor="Black"/>
+                
+                <!--Contact-->
+                <Label 
+                    x:Name="contactLabel"
+                    Text="Contact Us"
+                    Font="Bold,15"
+                    HorizontalOptions="Start"
+                    TextColor="Black"/>
+
+                <Label 
+                    x:Name="addressText"
+                    LineBreakMode="WordWrap"
+                    Text="2855 Colonial Blvd, Fort Myers, FL 33966"
+                    FontSize="Small"
+                    HorizontalOptions="Start"
+                    TextColor="Blue">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNavigate"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label
+                    x:Name="phoneText"
+                    Text="(239) 334-1102"
+                    FontSize="Small"
+                    HorizontalOptions="Start"
+                    TextColor="Blue">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCall"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <!--Social Media-->
+                <Label 
+                    x:Name="socialLabel"
+                    Text="Social Media"
+                    Font="Bold,15"
+                    HorizontalOptions="Start"
+                    TextColor="Black"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Image
+                        x:Name="twitterImage"
+                        Source="twittericon.png"
+                        BackgroundColor="Transparent"
+                        >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TwitterClicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image
+                        x:Name="facebookImage"
+                        Source="facebookicon.png"
+                        BackgroundColor="Transparent"
+                        >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="FacebookClicked"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
