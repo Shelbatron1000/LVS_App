@@ -1,11 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prototype.ApplyPage"
              Title="Apply">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Label Text="Apply Page" />
+            <Label x:Name="StatusLabel" HorizontalOptions="Center" 
+                HorizontalTextAlignment="Center" FontSize="Large"/>
+            <Button x:Name="StartButton" Text="Start" HorizontalOptions="Center"
+                IsEnabled="false" IsVisible="false" Clicked="StartApplication"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

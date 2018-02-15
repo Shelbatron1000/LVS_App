@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prototype.Apply.Step1">
+	<ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5">
+                <Label Text="First, tell us about the student"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"/>
+                <Entry x:Name="FirstName" Placeholder="First Name" 
+                    PlaceholderColor="Blue" 
+                    HorizontalTextAlignment="Center"/>
+                <Entry x:Name="MiddleName" Placeholder="Middle Name" 
+                    PlaceholderColor="Blue" 
+                    HorizontalTextAlignment="Center"/>
+                <Entry x:Name="LastName" Placeholder="Last Name" 
+                    PlaceholderColor="Blue" 
+                    HorizontalTextAlignment="Center"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Date Of Birth:" TextColor="Blue" Margin="10"/>
+                    <DatePicker x:Name="DOB" HorizontalOptions="Center"
+                       TextColor="Blue" Format="MM-dd-yyyy"/>
+                </StackLayout>
+                <Entry x:Name="Email" Placeholder="Email" 
+                    PlaceholderColor="Blue" Keyboard="Email"
+                    HorizontalTextAlignment="Center"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Entry x:Name="PhoneNumber" Placeholder="Phone Number" 
+                    PlaceholderColor="Blue" Keyboard="Telephone"
+                    HorizontalTextAlignment="Center"/>
+                    <Picker x:Name="PhoneTypePicker" Title="Type" TextColor="Blue" />
+                </StackLayout>
+                <Label Text="Address" HorizontalTextAlignment="Center"
+                    TextColor="White" BackgroundColor="Green"/>
+                <Entry x:Name="Street" Placeholder="Street" 
+                    PlaceholderColor="Blue" 
+                    HorizontalTextAlignment="Center"/>
+                <Entry x:Name="Unit" Placeholder="Unit/Apt #" 
+                    PlaceholderColor="Blue" 
+                    HorizontalTextAlignment="Center"/>
+                <Entry Placeholder="City" 
+                    PlaceholderColor="Blue" 
+                    HorizontalTextAlignment="Center"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="State:" TextColor="Blue" Margin="10"/>
+                    <Picker x:Name="StatePicker" Title="State" TextColor="Blue" />
+                </StackLayout>
+                <Entry x:Name="ZipCode" Placeholder="ZIP" 
+                    PlaceholderColor="Blue" Keyboard="Numeric"
+                    HorizontalTextAlignment="Center"/>
+                 <Label Text="Press Next to continue"
+                    BackgroundColor="Green"
+                    TextColor="White" Margin="0,10,0,0"
+                    HorizontalTextAlignment="Center"/>
+                <Button x:Name="NextButton" Text="Next"
+                    HorizontalOptions="End" Margin="0,0,20,0" Clicked="LoadStep2" />
+            </StackLayout>
+        </ScrollView>
+	</ContentPage.Content>
+</ContentPage>
