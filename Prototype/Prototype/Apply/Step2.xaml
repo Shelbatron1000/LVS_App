@@ -8,24 +8,21 @@
                     TextColor="White"
                     HorizontalTextAlignment="Center"/>
                 <Entry x:Name="SchoolName" Placeholder="School Name" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <Entry x:Name="SchoolDistrict" Placeholder="District" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <Entry x:Name="SchoolCounty" Placeholder="County" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                  <Picker x:Name="StatePicker" Title="State" 
                     HorizontalOptions="CenterAndExpand"
-                    Margin="0,0,0,10"/>
+                    Margin="0,0,0,10" TextColor="Blue"/>
                  <Label Text="For which grade are they applying?"
                     BackgroundColor="Green"
                     TextColor="White"
                     HorizontalTextAlignment="Center"/>
                  <Picker x:Name="GradePicker" Title="Grade" 
                     HorizontalOptions="CenterAndExpand"
-                    Margin="0,0,0,10"/>
+                    Margin="0,0,0,10" TextColor="Blue"/>
                  <Label Text="Press Next to continue"
                     BackgroundColor="Green"
                     TextColor="White"

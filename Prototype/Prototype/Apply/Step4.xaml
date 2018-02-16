@@ -16,6 +16,9 @@
                         <Switch x:Name="Q1ResponseSwitch"/>
                         <Label Text="Yes" TextColor="Blue"/>
                     </StackLayout>
+                <Label Text=" "
+                    BackgroundColor="Green"
+                    TextColor="White"/>
                 <Label x:Name="Q2"
                     Text="Is the student in an Exceptional Student Education ESE program?" 
                     HorizontalTextAlignment="Start"
@@ -25,6 +28,9 @@
                         <Switch x:Name="Q2ResponseSwitch"/>
                         <Label Text="Yes" TextColor="Blue"/>
                     </StackLayout>
+                <Label Text=" "
+                    BackgroundColor="Green"
+                    TextColor="White"/>
                 <Label x:Name="Q3"
                     Text="Is the student enrolled as a home school student?" 
                     HorizontalTextAlignment="Start"
@@ -34,35 +40,49 @@
                         <Switch x:Name="Q3ResponseSwitch"/>
                         <Label Text="Yes" TextColor="Blue"/>
                     </StackLayout>
+                <Label Text=" "
+                    BackgroundColor="Green"
+                    TextColor="White"/>
                 <Label x:Name="Q4"
                     Text="Has the student been enrolled in a virtual course before?" 
                     HorizontalTextAlignment="Start"
                     TextColor="Blue"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <Label Text="No" TextColor="Blue"/>
-                        <Switch x:Name="Q4ResponseSwitch" Toggled="AdditionalQuestions"/>
+                        <Switch x:Name="Q4ResponseSwitch" Toggled="AdditionalQuestions" />
                         <Label Text="Yes" TextColor="Blue" />
                     </StackLayout>
+                <Label Text=" "
+                    BackgroundColor="Green"
+                    TextColor="White"/>
                 <Label x:Name="Q5"
                     Text="If the student has been enrolled in any virtual course, where they enrolled?" 
                     HorizontalTextAlignment="Start"
                     TextColor="Blue" IsVisible="false" IsEnabled="false"/>
                 <Entry x:Name="Q5Response" HorizontalTextAlignment="Center"
-                    Placeholder="Name of Previous Virtual School"
-                    PlaceholderColor="Blue" IsVisible="false" IsEnabled="false"/>
+                    PlaceholderColor="Blue" Placeholder="Name of Previous Virtual School"
+                     IsVisible="false" IsEnabled="false"/>
+                <Label x:Name="EndQ5Bar" Text=" " IsVisible="false"
+                    BackgroundColor="Green"
+                    TextColor="White"/>
                <Label x:Name="Q6"
                     Text="If the student has been enrolled in any virtual course, when they enrolled?" 
                     HorizontalTextAlignment="Start"
                     TextColor="Blue" IsVisible="false" IsEnabled="false"/>
                 <DatePicker x:Name="Q6Response" HorizontalOptions="CenterAndExpand"
-                    TextColor="Blue" Format="MMM - yyyy" IsVisible="false" IsEnabled="false"/>
+                    Format="MMM - yyyy" IsVisible="false" IsEnabled="false"/>
+                <Label x:Name="EndQ6Bar" Text=" " IsVisible="false"
+                    BackgroundColor="Green"
+                    TextColor="White"/>
                 <Label x:Name="Q7"
                     Text="What is the reason for applying to LVS?" 
                     HorizontalTextAlignment="Start"
                     TextColor="Blue"/>
                 <Entry x:Name="Q7Response" HorizontalTextAlignment="Center"
-                    Placeholder="Reason"
-                    PlaceholderColor="Blue"/>
+                    PlaceholderColor="Blue" Placeholder="Reason"/>
+                <Label Text=" "
+                    BackgroundColor="Green"
+                    TextColor="White"/>
                 <Label x:Name="Q8"
                     Text="Is the student a Lee County Resident?" 
                     HorizontalTextAlignment="Start"

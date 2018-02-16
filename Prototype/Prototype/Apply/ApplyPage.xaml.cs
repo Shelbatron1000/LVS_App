@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Prototype.Apply;
 
 namespace Prototype
 {
@@ -18,10 +19,10 @@ namespace Prototype
             InitializeComponent();
             if(IsActive())
             {
-                Status = "The application period is currently open.\n\nClick the start button below to begin.";
+                Status = "The application period is currently open.\n\nClick below to begin.";
                 StatusLabel.Text = Status;
-                StartButton.IsVisible = true;
-                StartButton.IsEnabled = true;
+                ButtonsLayout.IsVisible = true;
+                ButtonsLayout.IsEnabled = true;
             }else
             {
                 Status = "The application period is currently closed.\n\nApplications are not being accepted at this time." ; 
@@ -32,8 +33,14 @@ namespace Prototype
 
         void StartApplication()
         {
-            Apply.Step1 newPage = new Apply.Step1();
+            StudentApp Application = new StudentApp();
+            Apply.Step1 newPage = new Apply.Step1(Application);
             Navigation.PushAsync(newPage);
+        }
+
+        void StudentSearch()
+        {
+            //this method will be used to query the database to find an existing student's info
         }
 
         //Use this method to query the server to see if the application period is active

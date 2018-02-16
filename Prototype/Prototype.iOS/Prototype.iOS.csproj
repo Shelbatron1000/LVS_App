@@ -142,10 +142,13 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.5.0.121934\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prototype\Prototype.csproj">
-      <Project>{af784836-8231-47ed-8869-8cd09973dc03}</Project>
+      <Project>{A505E574-F3E9-4948-928C-2FD8AF1DB3A2}</Project>
       <Name>Prototype</Name>
     </ProjectReference>
   </ItemGroup>

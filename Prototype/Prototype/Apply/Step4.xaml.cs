@@ -32,6 +32,20 @@ namespace Prototype.Apply
                 Q6.IsVisible = true;
                 Q6Response.IsEnabled = true;
                 Q6Response.IsVisible = true;
+                EndQ5Bar.IsVisible = true;
+                EndQ6Bar.IsVisible = true;
+            }else
+            {
+                Q5.IsEnabled = false;
+                Q5.IsVisible = false;
+                Q5Response.IsEnabled = false;
+                Q5Response.IsVisible = false;
+                Q6.IsEnabled = false;
+                Q6.IsVisible = false;
+                Q6Response.IsEnabled = false;
+                Q6Response.IsVisible = false;
+                EndQ5Bar.IsVisible = false;
+                EndQ6Bar.IsVisible = false;
             }
         }
 

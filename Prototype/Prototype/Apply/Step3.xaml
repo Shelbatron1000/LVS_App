@@ -8,22 +8,17 @@
                     TextColor="White" Margin="0,0,0,10"
                     HorizontalTextAlignment="Center"/>
                 <Entry x:Name="GuardianFirstName" Placeholder="First Name" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <Entry x:Name="GuardianLastName" Placeholder="Last Name" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <Entry x:Name="GuardianRelationship" Placeholder="Relationship" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <Entry x:Name="GuardianPhoneNumber" Placeholder="Phone Number" 
                     PlaceholderColor="Blue" Keyboard="Telephone"
                     HorizontalTextAlignment="Center"/>
                 <Entry x:Name="GuardianEmail" Placeholder="Email" 
                     PlaceholderColor="Blue" Keyboard="Email"
                     HorizontalTextAlignment="Center"/>
-                
-
                  <Label Text="Press Next to continue"
                     BackgroundColor="Green"
                     TextColor="White" Margin="0,10,0,0"

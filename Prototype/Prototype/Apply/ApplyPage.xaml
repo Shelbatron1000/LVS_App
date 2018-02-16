@@ -5,11 +5,20 @@
              Title="Apply">
     <ContentPage.Content>
         <StackLayout Padding="10">
+            <Label Text=" " BackgroundColor="Green"/>
             <Label x:Name="StatusLabel" HorizontalOptions="Center" 
                 HorizontalTextAlignment="Center" FontSize="Large"/>
-            <Button x:Name="StartButton" Text="Start" HorizontalOptions="Center"
-                IsEnabled="false" IsVisible="false" Clicked="StartApplication"/>
-            <Label Text="This is a test label"/>
+            <Label Text=" " BackgroundColor="Green"/>
+            <StackLayout x:Name="ButtonsLayout" IsEnabled="false" IsVisible="false">
+                <Label Text="New Student Application" HorizontalTextAlignment="Center"/>    
+                <Button x:Name="StartButton" Text="Start" HorizontalOptions="Center"
+                    Clicked="StartApplication"/>
+                <Label Text=" " BackgroundColor="Green"/>
+                <Label Text="Current Student Search" HorizontalTextAlignment="Center"/>    
+                <Button x:Name="SearchButton" Text="Search" HorizontalOptions="Center"
+                    Clicked="StudentSearch"/>
+                <Label Text=" " BackgroundColor="Green"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
