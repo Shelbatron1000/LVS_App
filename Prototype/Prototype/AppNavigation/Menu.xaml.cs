@@ -1,6 +1,4 @@
-﻿using Android.Content;
-using Android.Telephony;
-using Prototype.WebViews;
+﻿using Prototype.WebViews;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
