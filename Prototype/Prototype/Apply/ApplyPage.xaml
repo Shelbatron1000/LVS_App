@@ -9,6 +9,7 @@
                 HorizontalTextAlignment="Center" FontSize="Large"/>
             <Button x:Name="StartButton" Text="Start" HorizontalOptions="Center"
                 IsEnabled="false" IsVisible="false" Clicked="StartApplication"/>
+            <Label Text="This is a test label"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
