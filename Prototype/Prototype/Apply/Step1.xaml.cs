@@ -8,8 +8,9 @@ namespace Prototype.Apply
     public partial class Step1 : ContentPage
     {
         StudentApp Application = new StudentApp();
-        public Step1()
+        public Step1(StudentApp Application)
         {
+            this.Application = Application;
             InitializeComponent();
             ObservableCollection<string> StateAbv = BuildStatesList();
             ObservableCollection<string> Types = new ObservableCollection<string> 
@@ -21,6 +22,10 @@ namespace Prototype.Apply
             PhoneTypePicker.ItemsSource = Types;
             StatePicker.ItemsSource = StateAbv;
 
+        }
+        public Step1()
+        {
+            InitializeComponent();
         }
 
         void LoadStep2(Object sender, EventArgs e)

@@ -7,40 +7,34 @@
                     BackgroundColor="Green"
                     TextColor="White"
                     HorizontalTextAlignment="Center"/>
-                <Entry x:Name="FirstName" Placeholder="First Name" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                <Entry x:Name="FirstName" Placeholder="First Name"  
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <Entry x:Name="MiddleName" Placeholder="Middle Name" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <Entry x:Name="LastName" Placeholder="Last Name" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Label Text="Date Of Birth:" TextColor="Blue" Margin="10"/>
                     <DatePicker x:Name="DOB" HorizontalOptions="Center"
                        TextColor="Blue" Format="MM-dd-yyyy"/>
                 </StackLayout>
                 <Entry x:Name="Email" Placeholder="Email" 
-                    PlaceholderColor="Blue" Keyboard="Email"
+                     Keyboard="Email" PlaceholderColor="Blue"
                     HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Entry x:Name="PhoneNumber" Placeholder="Phone Number" 
-                    PlaceholderColor="Blue" Keyboard="Telephone"
+                     Keyboard="Telephone" PlaceholderColor="Blue"
                     HorizontalTextAlignment="Center"/>
                     <Picker x:Name="PhoneTypePicker" Title="Type" TextColor="Blue" />
                 </StackLayout>
                 <Label Text="Address" HorizontalTextAlignment="Center"
                     TextColor="White" BackgroundColor="Green"/>
                 <Entry x:Name="Street" Placeholder="Street" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <Entry x:Name="Unit" Placeholder="Unit/Apt #" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <Entry Placeholder="City" 
-                    PlaceholderColor="Blue" 
-                    HorizontalTextAlignment="Center"/>
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Label Text="State:" TextColor="Blue" Margin="10"/>
                     <Picker x:Name="StatePicker" Title="State" TextColor="Blue" />
