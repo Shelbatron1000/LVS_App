@@ -41,15 +41,10 @@ namespace Prototype
                         Device.OpenUri(
                           new Uri(string.Format("geo:0,0?q={0}", WebUtility.UrlEncode(address))));
                         break;
-                    case Device.UWP:
-                    case Device.WinPhone:
-                        Device.OpenUri(
-                          new Uri(string.Format("bingmaps:?where={0}", Uri.EscapeDataString(address))));
-                        break;
                 }
             }
 
-            
+
         }
 
         //label must have the phone number as its text!
@@ -69,7 +64,7 @@ namespace Prototype
                 if (dialer != null)
                     dialer.Dial(txt);
             }
-            
+
         }
 
         /*
@@ -92,6 +87,18 @@ namespace Prototype
         //    string cleaned = sb.ToString();
         //    return cleaned;
         //}
+        async void OnEmail(object sender, EventArgs e)
+        {
+            if (await this.DisplayAlert(
+                "Email",
+                "Lee Virtual School",
+                "Yes",
+                "No"))
+            {
+                Device.OpenUri(new Uri("mailto:ryan.hatfield@test.com"));
+            }
+
+        }
 
         private void TwitterClicked(object sender, EventArgs e)
         {

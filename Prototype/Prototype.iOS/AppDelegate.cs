@@ -24,6 +24,10 @@ namespace Prototype.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            #if ENABLE_TEST_CLOUD
+                        // requires Xamarin Test Cloud Agent
+                        Xamarin.Calabash.Start();
+            #endif
 
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
@@ -35,9 +39,6 @@ namespace Prototype.iOS
 
             UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);
             //UINavigationBar.Appearance.BarStyle = UIBarStyle.Black;
-
-
-
 
             return base.FinishedLaunching(app, options);
         }
