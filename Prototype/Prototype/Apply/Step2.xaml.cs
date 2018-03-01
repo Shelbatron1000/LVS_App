@@ -25,10 +25,36 @@ namespace Prototype.Apply
 
         void LoadStep3(Object sender, EventArgs e)
         {
-            //Push the next page, Step3, onto the Nav stack, pass it the Application object that was created here.
-            Apply.Step3 newPage = new Apply.Step3(Application);
-            Navigation.PushAsync(newPage);
+            //input validation
+            if (AnyFieldEmptyOrNull()) //if fields are empty
+            {
+                DisplayAlert("Empty Field(s)", "Please input all information fields", "OK");
+            }
+            else
+            {
+                //validate certain fields
 
+                //call insert info
+
+
+                //Push the next page, Step3, onto the Nav stack, pass it the Application object that was created here.
+                Apply.Step3 newPage = new Apply.Step3(Application);
+                Navigation.PushAsync(newPage);
+            }
+        }
+
+        public bool AnyFieldEmptyOrNull()
+        {
+            InputValidation validate = new InputValidation();
+            if (validate.EmptyorNull(SchoolName) ||
+                validate.EmptyorNull(SchoolDistrict) || 
+                validate.EmptyorNull(SchoolCounty) ||
+                validate.EmptyorNull(StatePicker) ||
+                validate.EmptyorNull(GradePicker))
+            {
+                return true; //Meaning that a field IS empty or null
+            }
+            return false;
         }
 
         void InsertInfo()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prototype.Apply.Step1">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prototype.Apply.Step1" xmlns:sys="clr-namespace:System;assembly=mscorlib">
 	<ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="5">
@@ -7,7 +7,7 @@
                     BackgroundColor="Green"
                     TextColor="White"
                     HorizontalTextAlignment="Center"/>
-                <Entry x:Name="FirstName" Placeholder="First Name"  
+                <Entry x:Name="FirstName" Placeholder="First Name" 
                     PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <Entry x:Name="MiddleName" Placeholder="Middle Name" 
                     PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
@@ -16,14 +16,16 @@
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Label Text="Date Of Birth:" TextColor="Blue" Margin="10"/>
                     <DatePicker x:Name="DOB" HorizontalOptions="Center"
-                       TextColor="Blue" Format="MM-dd-yyyy"/>
+                       TextColor="Blue" Format="MM-dd-yyyy"
+                       MaximumDate="{x:Static sys:DateTime.Now}"
+                       MinimumDate="12-31-1995"/>
                 </StackLayout>
                 <Entry x:Name="Email" Placeholder="Email" 
                      Keyboard="Email" PlaceholderColor="Blue"
                     HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Entry x:Name="PhoneNumber" Placeholder="Phone Number" 
-                     Keyboard="Telephone" PlaceholderColor="Blue"
+                     Keyboard="Numeric" PlaceholderColor="Blue"
                     HorizontalTextAlignment="Center"/>
                     <Picker x:Name="PhoneTypePicker" Title="Type" TextColor="Blue" />
                 </StackLayout>
@@ -33,7 +35,7 @@
                     PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <Entry x:Name="Unit" Placeholder="Unit/Apt #" 
                     PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
-                <Entry Placeholder="City" 
+                <Entry Placeholder="City" x:Name="City"
                     PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Label Text="State:" TextColor="Blue" Margin="10"/>
