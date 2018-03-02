@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Foundation;
 using UIKit;
 
@@ -24,10 +26,14 @@ namespace Prototype.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            // Newer version of Visual Studio for Mac and Visual Studio provide the
+            // ENABLE_TEST_CLOUD compiler directive in the Debug configuration,
+            // but not the Release configuration.
             #if ENABLE_TEST_CLOUD
-                        // requires Xamarin Test Cloud Agent
-                        Xamarin.Calabash.Start();
+            Xamarin.Calabash.Start();
             #endif
+
+            AppCenter.Start("aa5a52f6-a4a7-4a21-a385-a7b954dc702c", typeof(Analytics), typeof(Crashes));
 
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
