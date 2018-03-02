@@ -14,7 +14,7 @@
                             <StackLayout HorizontalOptions="FillAndExpand"
                                 VerticalOptions="Center" Orientation="Horizontal">
                                 <Label x:Name="Name"  Text="{Binding Name}"/>
-                                <Label x:Name="Phone" Text="{Binding Phone}"/>
+                             <!--   <Label x:Name="Phone" Text="{Binding Phone}"/>-->
                             </StackLayout>
                         </ViewCell>  
                     </DataTemplate>
