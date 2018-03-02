@@ -100,6 +100,10 @@
     <Compile Include="Apply\Step4.xaml.cs">
       <DependentUpon>Step4.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Teachers\MoreInfoPage.xaml.cs">
+      <DependentUpon>MoreInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Apply\InputValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -119,6 +123,10 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Apply\Step4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teachers\MoreInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

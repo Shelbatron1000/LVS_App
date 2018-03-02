@@ -57,8 +57,27 @@ namespace Prototype.Apply
 
         void SubmitApplication(object sender, EventArgs e)
         {
+            //input validation
+            if (AnyFieldEmptyOrNull()) //if fields are empty
+            {
+                DisplayAlert("Empty Field(s)", "Please input all information fields", "OK");
+            }
             //Use this method to submit the application to LVS
         }
+
+
+        public bool AnyFieldEmptyOrNull()
+        {
+            InputValidation validate = new InputValidation();
+            if ((Q4ResponseSwitch.IsToggled && validate.EmptyorNull(Q5Response)) ||
+                validate.EmptyorNull(Q7Response)
+            )
+            {
+                return true; //Meaning that a field IS empty or null
+            }
+            return false;
+        }
+
 
     }
 }

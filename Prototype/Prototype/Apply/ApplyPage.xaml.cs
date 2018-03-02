@@ -38,10 +38,6 @@ namespace Prototype
             Navigation.PushAsync(newPage);
         }
 
-        void StudentSearch()
-        {
-            //this method will be used to query the database to find an existing student's info
-        }
 
         //Use this method to query the server to see if the application period is active
         public bool IsActive()
