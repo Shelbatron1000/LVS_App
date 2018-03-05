@@ -12,6 +12,8 @@
                 HorizontalTextAlignment="Center"/>
             <Label x:Name="TeacherEmail" FontSize="Medium"
                 HorizontalTextAlignment="Center"/>
+            <Label Text="Office Hours:" FontSize="Medium"
+                HorizontalTextAlignment="Center"/>
             <Label x:Name="TeacherHours" FontSize="Medium"
                 HorizontalTextAlignment="Center"/>
             <Label Text=" " BackgroundColor="Green"/>
