@@ -85,29 +85,8 @@ namespace Prototype
 
         public void ParentPortalClicked(object sender, EventArgs e)
         {
-            //The FOCUS website does not render correctly for an in-app webview for Android but does so for iOS
-            switch (Device.RuntimePlatform)
-            {
-                case Device.iOS:
-                    Navigate(typeof(ParentPortalWebView));
-                    break;
-                case Device.Android:
-                    if (Device.Idiom == TargetIdiom.Phone)
-                    {
-                        System.Diagnostics.Debug.WriteLine("Mobile");
-                        Device.OpenUri(new Uri("https://lee.focusschoolsoftware.com/focus/"));                 
-                    }
-                    else
-                    {
-                        System.Diagnostics.Debug.WriteLine("Tablet");
-                        Navigate(typeof(ParentPortalWebView));
-                    }                
-                    break;
-                default:
-                    Device.OpenUri(new Uri("https://lee.focusschoolsoftware.com/focus/"));
-                    break;
-            }
-
+            Navigate(typeof(ParentPortalWebView));
+            //Device.OpenUri(new Uri("https://lee.focusschoolsoftware.com/focus/"));
             BoldLabels(ParentPortalLabel);
         }
 

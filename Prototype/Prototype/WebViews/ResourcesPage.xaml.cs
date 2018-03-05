@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Prototype.WebViews
+namespace Prototype
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FLVSWebView : ContentPage
+    public partial class ResourcesPage : ContentPage
     {
-        private static string currentUrl = "https://login.flvs.net/";
+        private static string currentUrl = "http://lvip.leeschools.net/resources";
 
-        public FLVSWebView()
+        public ResourcesPage()
         {
             InitializeComponent();
         }
@@ -45,8 +45,8 @@ namespace Prototype.WebViews
 
         public void OnNavigatedHandler(object sender, WebNavigatedEventArgs e)
         {
-            //keep track of what url the user is currently on
-            currentUrl = e.Url;
+                //keep track of what url the user is currently on
+                currentUrl = e.Url;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Prototype
@@ -6,12 +7,41 @@ namespace Prototype
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ParentPortalWebView : ContentPage
 	{
-		public ParentPortalWebView ()
-		{
-			InitializeComponent ();
-            
-            //Attemped to use a custom renderer here so that the zoom would be at the proper levels, but it did not work.
-            //So now only an iOS device will open this website "in-app", while an Android device opens it externally. 
+        private static string currentUrl = "https://lee.focusschoolsoftware.com/focus/";
+
+        public ParentPortalWebView()
+        {
+            InitializeComponent();
         }
-	}
+
+        private void backClicked(object sender, EventArgs e)
+        {
+            // Check to see if there is anywhere to go back to
+            if (Browser.CanGoBack)
+            {
+                Browser.GoBack();
+            }
+        }
+
+        private void openClicked(object sender, EventArgs e)
+        {
+            //open the current url in the native browser
+            Device.OpenUri(new Uri(currentUrl));
+        }
+
+        private void forwardClicked(object sender, EventArgs e)
+        {
+            // Check to see if there is anywhere to go forward to
+            if (Browser.CanGoForward)
+            {
+                Browser.GoForward();
+            }
+        }
+
+        public void OnNavigatedHandler(object sender, WebNavigatedEventArgs e)
+        {
+            //keep track of what url the user is currently on
+            currentUrl = e.Url;
+        }
+    }
 }

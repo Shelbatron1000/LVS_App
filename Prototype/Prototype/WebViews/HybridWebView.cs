@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Prototype
 {
-    public class HybridWebView : View
+    public class HybridWebView : WebView
     {
         public static readonly BindableProperty UrlProperty = BindableProperty.Create(
           propertyName: "Url",

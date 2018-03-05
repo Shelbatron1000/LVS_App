@@ -15,11 +15,24 @@ namespace Prototype.Teachers
             TeacherPhone.Text = Teacher.Phone;
             TeacherEmail.Text = Teacher.Email;
             TeacherHours.Text = Teacher.OfficeHours;
+            this.Title = Teacher.Name;
 
         }
         public MoreInfoPage()
         {
             InitializeComponent();
+        }
+
+        public void ToGenBook(object sender, EventArgs e)
+        {
+            if(Teacher.School.Equals("Elementary"))
+            {
+                Navigation.PushAsync(new WebViews.GenBookElementaryWebView());
+            } else
+            {
+                Navigation.PushAsync(new WebViews.GenBookSecondaryWebView());
+            }
+            
         }
     }
 }

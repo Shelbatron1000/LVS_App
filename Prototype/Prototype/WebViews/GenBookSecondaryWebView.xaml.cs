@@ -10,11 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Prototype.WebViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FLVSWebView : ContentPage
+    public partial class GenBookSecondaryWebView : ContentPage
     {
-        private static string currentUrl = "https://login.flvs.net/";
+        private static string currentUrl = "https://www.genbook.com/bookings/slot/reservation/30106867?bookingContactId=2015816796&amp;category=161745271";
 
-        public FLVSWebView()
+        public GenBookSecondaryWebView()
         {
             InitializeComponent();
         }
