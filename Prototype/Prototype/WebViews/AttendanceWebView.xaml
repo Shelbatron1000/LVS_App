@@ -22,6 +22,7 @@
             So here I use a custom renderer to adjust the zoom options in the native code for each device.
             <!-->
             <local:HybridWebView x:Name="Browser"
+                     AutomationId="Browser"
                      VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand"
                      Url="https://secureis.leeschools.net/LvipLogin/Forms/LVIPLogin.aspx?ReturnUrl=%2fLVIPlogin%2fforms%2flvipwelcome.aspx"/>

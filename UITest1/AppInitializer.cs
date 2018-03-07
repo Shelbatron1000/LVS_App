@@ -8,6 +8,7 @@ namespace UITest1
 {
     public class AppInitializer
     {
+        [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
         public static IApp StartApp(Platform platform)
         {
             if (platform == Platform.Android)

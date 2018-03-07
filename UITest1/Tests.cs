@@ -27,22 +27,42 @@ namespace UITest1
         }
 
         /*Demo Tests - as of now our program has very little testable elements*/
+        // Invoke the REPL to explore the user interface within a test method
+        //app.Repl(); //when it pops up, type "tree"
 
         [Test]
-        public void AppLaunches()
+        public void AppLaunchesTest()
         {
-            //app.Screenshot("First screen.");
+            Assert.DoesNotThrow(() => {app.Screenshot("First screen.");}); 
         }
 
+        [Test]
+        public void AttendanceTappedTest()
+        {
+            app.Tap(x => x.Marked("OK"));
+            app.Tap(x => x.Marked("1"));
+            Assert.True(app.Query(c => c.WebView()) != null);
+        }
 
         [Test]
-        public void AddressTapped()
+        public void TeacherDataLoadedTest()
         {
-            // Invoke the REPL so that we can explore the user interface
-            //app.Repl();
-            //when it pops up, type "tree"
-            app.Tap(x => x.Marked("addressText"));
-            app.Tap(x => x.Id("button1"));
+            app.Tap(x => x.Marked("OK"));
+            app.Tap(x => x.Marked("3"));
+            app.Tap(x => x.Marked("5"));
+            int ElemListLength = app.Query(q => q.Id("NoResourceEntry-34").Child()).Length;           
+            app.Tap(x => x.Marked("OK"));
+            app.Tap(x => x.Marked("6"));
+            int SecListLength = app.Query(q => q.Id("NoResourceEntry-45").Child()).Length;
+            Assert.True(ElemListLength > 0 && SecListLength > 0);
+        }
+
+        [Test]
+        public void ResourcesTappedTest()
+        {
+            app.Tap(x => x.Marked("OK"));
+            app.Tap(x => x.Marked("8"));
+            Assert.True(app.Query(c => c.WebView()) != null);
         }
 
     }
