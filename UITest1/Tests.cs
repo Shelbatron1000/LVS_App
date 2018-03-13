@@ -5,11 +5,11 @@ using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
 
-namespace UITest1
+namespace UITests
 {
     /*For Android and on Windows, you can use the Xamarin Test Recorder to create a UITest*/
-    //[TestFixture(Platform.Android)]
-    [TestFixture(Platform.iOS)] //Cannot test on Windows
+    [TestFixture(Platform.Android)]
+    //[TestFixture(Platform.iOS)] //Cannot test on Windows
     public class Tests
     {
         IApp app;

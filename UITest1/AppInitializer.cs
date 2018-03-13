@@ -4,7 +4,7 @@ using System.Linq;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
 
-namespace UITest1
+namespace UITests
 {
     public class AppInitializer
     {
@@ -16,7 +16,7 @@ namespace UITest1
                 return ConfigureApp
                     .Android
                     .EnableLocalScreenshots()
-                   // .ApkFile(@"C:\Users\shelb\VisualStudio2017_Projects\Prototype\Prototype\Prototype.Android\bin\Release\Prototype.Prototype.apk")
+                    .ApkFile(@"C:\Users\shelb\VisualStudio2017_Projects\Prototype\Prototype\Prototype.Android\bin\Release\Prototype.Prototype.apk")
                     //.ApkFile(@"/Users/derekbailey/Projects/Shelbatron1000/LVS_App/Prototype/Prototype.Android/bin/Release/Prototype.apk")
                     .StartApp();
                     
