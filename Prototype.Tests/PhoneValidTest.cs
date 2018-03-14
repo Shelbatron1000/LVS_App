@@ -1,39 +1,40 @@
-﻿using Xunit;
-using Prototype.Apply;
+﻿using NUnit.Framework;
 using Xamarin.Forms;
 
-namespace Prototype.Test
+namespace UnitTests
 {
+
+    [TestFixture]
     public class PhoneValidTest
     {
-        InputValidation valid;
+        Prototype.Apply.InputValidation valid;
         Entry testEntry;
 
         public PhoneValidTest()
         {
-            valid = new InputValidation();
+            valid = new Prototype.Apply.InputValidation();
             testEntry = new Entry();
         }
 
-        [Fact]
+        [Test]
         public void TestPhone_WithLessDigits()
         {
             testEntry.Text = "123456789"; //only 9 digits
-            Assert.False(valid.ValidPhone(testEntry));
+            Assert.IsFalse(valid.ValidPhone(testEntry));
         }
 
-        [Fact]
+        [Test]
         public void TestPhone_WithAlpha()
         {
             testEntry.Text = "123456789F"; //10 digits, with F as tenth
-            Assert.False(valid.ValidPhone(testEntry));
+            Assert.IsFalse(valid.ValidPhone(testEntry));
         }
 
-        [Fact]
+        [Test]
         public void TestPhone_WithValid()
         {
             testEntry.Text = "1234567890"; //valid 10 numeric digits
-            Assert.True(valid.ValidPhone(testEntry));
+            Assert.IsTrue(valid.ValidPhone(testEntry));
         }
     }
 }

@@ -1,39 +1,41 @@
-﻿using Xunit;
-using Prototype.Apply;
+﻿using NUnit.Framework;
 using Xamarin.Forms;
 
-namespace Prototype.Test
+namespace UnitTests
 {
+
+    [TestFixture]
     public class ZipValidTest
     {
-        InputValidation valid;
+        Prototype.Apply.InputValidation valid;
         Entry testEntry;
 
         public ZipValidTest()
         {
-            valid = new InputValidation();
+            valid = new Prototype.Apply.InputValidation();
             testEntry = new Entry();
         }
 
-        [Fact]
+        
+        [Test]
         public void TestZip_WithLessDigits()
         {
             testEntry.Text = "1234"; //only 4 digits
-            Assert.False(valid.ValidZip(testEntry));
+            Assert.IsFalse(valid.ValidZip(testEntry));
         }
 
-        [Fact]
+        [Test]
         public void TestZip_WithAlpha()
         {
             testEntry.Text = "1234F"; //5 digits, with F as fifth
-            Assert.False(valid.ValidZip(testEntry));
+            Assert.IsFalse(valid.ValidZip(testEntry));
         }
 
-        [Fact]
+        [Test]
         public void TestZip_WithValid()
         {
             testEntry.Text = "12345"; //valid 5 numeric digits
-            Assert.True(valid.ValidZip(testEntry));
+            Assert.IsTrue(valid.ValidZip(testEntry));
         }
     }
 }

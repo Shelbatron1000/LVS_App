@@ -1,47 +1,47 @@
-﻿using Xunit;
-using Prototype.Apply;
+﻿using NUnit.Framework;
 using Xamarin.Forms;
 
-namespace Prototype.Test
+namespace UnitTests
 {
+
+    [TestFixture]
     public class EmailValidTest
     {
-        InputValidation valid;
+        Prototype.Apply.InputValidation valid;
         Entry testEntry;
-
         public EmailValidTest()
         {
-            valid = new InputValidation();
+            valid = new Prototype.Apply.InputValidation();
             testEntry = new Entry();
         }
 
-        [Fact]
+        [Test]
         public void TestEmail_WithWrongStart()
         {
             testEntry.Text = "@email.com";
-            Assert.False(valid.ValidEmail(testEntry));
+            Assert.IsFalse(valid.ValidEmail(testEntry));
         }
 
-        [Fact]
+
+        [Test]
         public void TestEmail_WithWrongEnding()
         {
             testEntry.Text = "test@email";
-            Assert.False(valid.ValidEmail(testEntry));
+            Assert.IsFalse(valid.ValidEmail(testEntry));
         }
 
-        [Fact]
+        [Test]
         public void TestEmail_WithNoAt()
         {
             testEntry.Text = "testemail.com";
-            Assert.False(valid.ValidEmail(testEntry));
+            Assert.IsFalse(valid.ValidEmail(testEntry));
         }
 
-        [Fact]
+        [Test]
         public void TestEmail_WithValid()
         {
             testEntry.Text = "test@email.com";
-            Assert.True(valid.ValidEmail(testEntry));
+            Assert.IsTrue(valid.ValidEmail(testEntry));
         }
-
     }
 }

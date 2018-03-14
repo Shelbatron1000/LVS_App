@@ -7,11 +7,11 @@
                     BackgroundColor="Green"
                     TextColor="White"
                     HorizontalTextAlignment="Center"/>
-                <Entry x:Name="FirstName" Placeholder="First Name" 
+                <Entry AutomationId="FirstName" x:Name="FirstName" Placeholder="First Name" 
                     PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
-                <Entry x:Name="MiddleName" Placeholder="Middle Name" 
+                <Entry AutomationId="MiddleName" x:Name="MiddleName" Placeholder="Middle Name" 
                     PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
-                <Entry x:Name="LastName" Placeholder="Last Name" 
+                <Entry AutomationId="LastName" x:Name="LastName" Placeholder="Last Name" 
                     PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Label Text="Date Of Birth:" TextColor="Blue" Margin="10"/>

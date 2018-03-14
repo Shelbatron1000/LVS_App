@@ -1,42 +1,42 @@
-using Xunit;
-using Prototype.Apply;
+﻿using NUnit.Framework;
 using Xamarin.Forms;
 
-
-namespace Prototype.Test
+namespace UnitTests
 {
+    [TestFixture]
     public class EmptyNullTest
     {
-        InputValidation valid;
+        Prototype.Apply.InputValidation valid;
         Entry testEntry;
         Picker testPicker;
 
         public EmptyNullTest()
         {
-            valid = new InputValidation();
+            valid = new Prototype.Apply.InputValidation();
             testEntry = new Entry();
             testPicker = new Picker();
         }
 
-        [Fact]
+        [Test]
         public void TestEmptyOrNull_WithNull()
         {
-            Assert.True(valid.EmptyorNull(testEntry));
+            Assert.IsTrue(valid.EmptyorNull(testEntry));
             testPicker.SelectedItem = null;
-            Assert.True(valid.EmptyorNull(testPicker));
+            Assert.IsTrue(valid.EmptyorNull(testPicker));
         }
 
-        [Fact]
+        [Test]
         public void TestEmptyOrNull_WithEmpty()
         {
             testEntry.Text = "";
-            Assert.True(valid.EmptyorNull(testEntry));
+            Assert.IsTrue(valid.EmptyorNull(testEntry));
         }
-        [Fact]
+
+        [Test]
         public void TestEmptyOrNull_WithFilled()
         {
             testEntry.Text = "TestText";
-            Assert.False(valid.EmptyorNull(testEntry));
+            Assert.IsFalse(valid.EmptyorNull(testEntry));
         }
     }
 }
