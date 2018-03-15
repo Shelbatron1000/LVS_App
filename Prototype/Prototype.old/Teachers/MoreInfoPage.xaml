@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Prototype.Teachers.MoreInfoPage"
+             Title="">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text=" " BackgroundColor="Green"/>
+            <Label x:Name="TeacherName" FontSize="Large" 
+                HorizontalTextAlignment="Center"/>
+            <Label x:Name="TeacherPhone" FontSize="Medium" 
+                HorizontalTextAlignment="Center"/>
+            <Label x:Name="TeacherEmail" FontSize="Medium"
+                HorizontalTextAlignment="Center"/>
+            <Label Text="Office Hours:" FontSize="Medium"
+                HorizontalTextAlignment="Center"/>
+            <Label x:Name="TeacherHours" FontSize="Medium"
+                HorizontalTextAlignment="Center"/>
+            <Label Text=" " BackgroundColor="Green"/>
+            <Button x:Name="AppButton" Text="Make an Appointment"
+                    Clicked="ToGenBook"/>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
+
+<!---->

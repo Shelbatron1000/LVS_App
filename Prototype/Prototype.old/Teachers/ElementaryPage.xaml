@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Prototype;assembly=Prototype"
+             x:Class="Prototype.ElementaryPage"
+             Title="Elementary">
+    <ContentPage.Content>
+        <StackLayout Padding="10" x:Name="MainLayout">
+            <Label x:Name="TitleLabel" Text="Elementary Teachers" HorizontalOptions="Center" FontSize="Medium" />
+               <ListView x:Name="listView" ItemsSource="{Binding allTeachers}" ItemSelected="onSelected" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="FillAndExpand"
+                                VerticalOptions="Center" Orientation="Horizontal">
+                                <Label x:Name="Name"  Text="{Binding Name}"/>
+                             <!--   <Label x:Name="Phone" Text="{Binding Phone}"/>-->
+                            </StackLayout>
+                        </ViewCell>  
+                    </DataTemplate>
+                 </ListView.ItemTemplate>
+                <ListView.Footer>
+                        <Label />
+                </ListView.Footer>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

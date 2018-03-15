@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prototype.Apply.Step3">
+	<ContentPage.Content>
+         <ScrollView>
+            <StackLayout Padding="5">
+                <Label Text="Now enter the Parent/Guardian Information"
+                    BackgroundColor="Green"
+                    TextColor="White" Margin="0,0,0,10"
+                    HorizontalTextAlignment="Center"/>
+                <Entry x:Name="GuardianFirstName" Placeholder="First Name" 
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
+                <Entry x:Name="GuardianLastName" Placeholder="Last Name" 
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
+                <Entry x:Name="GuardianRelationship" Placeholder="Relationship" 
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Entry x:Name="GuardianPhoneNumber" Placeholder="Phone Number" 
+                     Keyboard="Numeric" PlaceholderColor="Blue"
+                    HorizontalTextAlignment="Center"/>
+                    <Picker x:Name="PhoneTypePicker" Title="Type" TextColor="Blue" />
+                </StackLayout>
+                <Entry x:Name="GuardianEmail" Placeholder="Email" 
+                    PlaceholderColor="Blue" Keyboard="Email"
+                    HorizontalTextAlignment="Center"/>
+                 <Label Text="Press Next to continue"
+                    BackgroundColor="Green"
+                    TextColor="White" Margin="0,10,0,0"
+                    HorizontalTextAlignment="Center"/>
+                <Button x:Name="NextButton" Text="Next"
+                    HorizontalOptions="End" Margin="0,0,20,0" Clicked="LoadStep4" />
+            </StackLayout>
+        </ScrollView>
+	</ContentPage.Content>
+</ContentPage>

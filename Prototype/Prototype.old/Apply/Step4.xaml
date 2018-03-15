@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prototype.Apply.Step4">
+	<ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5">
+                <Label Text="Last step, just answer the following questions"
+                    BackgroundColor="Green"
+                    TextColor="White" Margin="0,0,0,10"
+                    HorizontalTextAlignment="Center"/>
+                <Label x:Name="Q1"
+                    Text="Is the student currently enrolled at a Lee County Public School?" 
+                    HorizontalTextAlignment="Start"
+                    TextColor="Blue"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="No" TextColor="Blue"/>
+                        <Switch x:Name="Q1ResponseSwitch"/>
+                        <Label Text="Yes" TextColor="Blue"/>
+                    </StackLayout>
+                <Label Text=" "
+                    BackgroundColor="Green"
+                    TextColor="White"/>
+                <Label x:Name="Q2"
+                    Text="Is the student in an Exceptional Student Education ESE program?" 
+                    HorizontalTextAlignment="Start"
+                    TextColor="Blue"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="No" TextColor="Blue"/>
+                        <Switch x:Name="Q2ResponseSwitch"/>
+                        <Label Text="Yes" TextColor="Blue"/>
+                    </StackLayout>
+                <Label Text=" "
+                    BackgroundColor="Green"
+                    TextColor="White"/>
+                <Label x:Name="Q3"
+                    Text="Is the student enrolled as a home school student?" 
+                    HorizontalTextAlignment="Start"
+                    TextColor="Blue"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="No" TextColor="Blue"/>
+                        <Switch x:Name="Q3ResponseSwitch"/>
+                        <Label Text="Yes" TextColor="Blue"/>
+                    </StackLayout>
+                <Label Text=" "
+                    BackgroundColor="Green"
+                    TextColor="White"/>
+                <Label x:Name="Q4"
+                    Text="Has the student been enrolled in a virtual course before?" 
+                    HorizontalTextAlignment="Start"
+                    TextColor="Blue"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="No" TextColor="Blue"/>
+                        <Switch x:Name="Q4ResponseSwitch" Toggled="AdditionalQuestions" />
+                        <Label Text="Yes" TextColor="Blue" />
+                    </StackLayout>
+                <Label Text=" "
+                    BackgroundColor="Green"
+                    TextColor="White"/>
+                <Label x:Name="Q5"
+                    Text="If the student has been enrolled in any virtual course, where they enrolled?" 
+                    HorizontalTextAlignment="Start"
+                    TextColor="Blue" IsVisible="false" IsEnabled="false"/>
+                <Entry x:Name="Q5Response" HorizontalTextAlignment="Center"
+                    PlaceholderColor="Blue" Placeholder="Name of Previous Virtual School"
+                     IsVisible="false" IsEnabled="false"/>
+                <Label x:Name="EndQ5Bar" Text=" " IsVisible="false"
+                    BackgroundColor="Green"
+                    TextColor="White"/>
+               <Label x:Name="Q6"
+                    Text="If the student has been enrolled in any virtual course, when they enrolled?" 
+                    HorizontalTextAlignment="Start"
+                    TextColor="Blue" IsVisible="false" IsEnabled="false"/>
+                <DatePicker x:Name="Q6Response" HorizontalOptions="CenterAndExpand"
+                    Format="MMM - yyyy" IsVisible="false" IsEnabled="false"/>
+                <Label x:Name="EndQ6Bar" Text=" " IsVisible="false"
+                    BackgroundColor="Green"
+                    TextColor="White"/>
+                <Label x:Name="Q7"
+                    Text="What is the reason for applying to LVS?" 
+                    HorizontalTextAlignment="Start"
+                    TextColor="Blue"/>
+                <Entry x:Name="Q7Response" HorizontalTextAlignment="Center"
+                    PlaceholderColor="Blue" Placeholder="Reason"/>
+                <Label Text=" "
+                    BackgroundColor="Green"
+                    TextColor="White"/>
+                <Label x:Name="Q8"
+                    Text="Is the student a Lee County Resident?" 
+                    HorizontalTextAlignment="Start"
+                    TextColor="Blue"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="No" TextColor="Blue"/>
+                        <Switch x:Name="Q8ResponseSwitch"/>
+                        <Label Text="Yes" TextColor="Blue"/>
+                    </StackLayout>
+
+                 <Label Text="Press Submit to finish"
+                    BackgroundColor="Green"
+                    TextColor="White" Margin="0,10,0,0"
+                    HorizontalTextAlignment="Center"/>
+                <Button x:Name="SubmitButton" Text="Submit"
+                    HorizontalOptions="End" Margin="0,0,20,0" Clicked="SubmitApplication" />
+            </StackLayout>
+        </ScrollView>
+	</ContentPage.Content>
+</ContentPage>

@@ -96,7 +96,7 @@ namespace UITests
             app.EnterText(x => x.Id("NoResourceEntry-43"), "Middle");
             app.Tap(x => x.Id("NoResourceEntry-44"));
             app.EnterText(x => x.Id("NoResourceEntry-44"), "Smith");
-            app.Tap(x => x.Text("03-14-2018"));
+            app.Tap(x => x.Text("03-15-2018"));
             app.Tap(x => x.Id("month_view"));
             app.Tap(x => x.Id("button1"));
             app.Tap(x => x.Id("NoResourceEntry-47"));

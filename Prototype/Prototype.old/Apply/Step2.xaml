@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prototype.Apply.Step2">
+	<ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5">
+                <Label Text="Next, what school did they last attend?"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"/>
+                <Entry x:Name="SchoolName" Placeholder="School Name" 
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
+                <Entry x:Name="SchoolDistrict" Placeholder="District" 
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
+                <Entry x:Name="SchoolCounty" Placeholder="County" 
+                    PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
+                 <Picker x:Name="StatePicker" Title="State" 
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="0,0,0,10" TextColor="Blue"/>
+                 <Label Text="For which grade are they applying?"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"/>
+                 <Picker x:Name="GradePicker" Title="Grade" 
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="0,0,0,10" TextColor="Blue"/>
+                 <Label Text="Press Next to continue"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"/>
+                <Button x:Name="NextButton" Text="Next"
+                    HorizontalOptions="End" Margin="0,0,20,0" Clicked="LoadStep3" />
+            </StackLayout>
+        </ScrollView>
+	</ContentPage.Content>
+</ContentPage>

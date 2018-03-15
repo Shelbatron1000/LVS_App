@@ -1,0 +1,9 @@
+﻿{
+  "dependencies": {
+    "Google.Apis.Core": "1.20.0"
+  },
+  "frameworks": {
+    ".NETPortable,Version=v4.5,Profile=Profile111": {}
+  },
+  "supports": {}
+}
