@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Prototype.Calendar.CalendarList"
+             Title="Calendar">
+    <ScrollView>
+        <AbsoluteLayout x:Name="MyAbsoluteLayout"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <StackLayout x:Name="MyStackLayout"
+                         AbsoluteLayout.LayoutFlags="All" 
+                         AbsoluteLayout.LayoutBounds="0,0,1,1">
+
+                <ListView x:Name="MyListView"
+                        ItemsSource="{Binding Events}"
+                        ItemTapped="Handle_ItemTapped"
+                        CachingStrategy="RecycleElement"
+                        HasUnevenRows="True">
+                    <!--Built in Cells-->
+                    <ListView.ItemTemplate>
+                        <!--<DataTemplate>
+                            <TextCell Text="{Binding Summary}" Detail="{Binding Start.DateTime, StringFormat='{}{0:h:mm tt}' }" />
+                            --><!--StringFormat='{}{0:h:mm tt}'--><!--
+                        </DataTemplate>-->
+
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical" Padding="5,5,5,5" >
+                                    <Label Text = "{Binding Summary}" FontSize="Medium" TextColor="Black"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text = "{Binding Start.DateTime, StringFormat='{}{0:h:mm tt}' }"/>
+                                        <Label Text = " - " TextColor="Black" />
+                                        <Label Text = "{Binding End.DateTime, StringFormat='{}{0:h:mm tt}' }"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <ActivityIndicator x:Name="spinner" IsVisible="true"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" IsRunning="true"/>
+
+        </AbsoluteLayout>
+    </ScrollView>
+
+    <!--Custom View Cells-->
+    <!--->
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+                <StackLayout>
+                    <Label Text="{Binding Location}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+                    <Label Text="{Binding StartTime}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+                    <Label Text="{Binding EndTime}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+                </StackLayout>
+            </ViewCell>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+    -->
+
+</ContentPage>

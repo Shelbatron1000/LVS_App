@@ -14,14 +14,24 @@ namespace Prototype
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ElementaryPage : ContentPage
     {
-        TeacherInfo data = new TeacherInfo();
+        TeacherInfo data;
         ObservableCollection<TeacherInfo.Teacher> allTeachers = new ObservableCollection<TeacherInfo.Teacher>();
 
 
         public ElementaryPage()
         {
             InitializeComponent();
-            PopListView();
+            Task.Run(() =>
+            {
+                data = new TeacherInfo();
+                Device.BeginInvokeOnMainThread(() =>
+                {
+
+                    PopListView();
+                });
+
+            });
+            
         }
 
         void PopListView()

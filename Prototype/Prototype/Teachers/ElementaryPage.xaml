@@ -3,11 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Prototype;assembly=Prototype"
              x:Class="Prototype.ElementaryPage"
-             Title="Elementary">
+             Title="Elementary Teachers">
     <ContentPage.Content>
         <StackLayout Padding="10" x:Name="MainLayout">
-            <Label x:Name="TitleLabel" Text="Elementary Teachers" HorizontalOptions="Center" FontSize="Medium" />
-               <ListView x:Name="listView" ItemsSource="{Binding allTeachers}" ItemSelected="onSelected" >
+            <ListView x:Name="listView" ItemsSource="{Binding allTeachers}" ItemSelected="onSelected" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

@@ -6,6 +6,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Foundation;
 using UIKit;
+using Syncfusion.SfSchedule.XForms.iOS;
 
 namespace Prototype.iOS
 {
@@ -45,6 +46,9 @@ namespace Prototype.iOS
 
             UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);
             //UINavigationBar.Appearance.BarStyle = UIBarStyle.Black;
+
+
+            new SfScheduleRenderer();
 
             return base.FinishedLaunching(app, options);
         }

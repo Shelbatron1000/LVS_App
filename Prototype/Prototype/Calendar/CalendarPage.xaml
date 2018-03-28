@@ -1,11 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Prototype.CalendarPage"
-             Title="Calendar">
+             x:Class="Prototype.Calendar.CalendarPage"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms" 
+             xmlns:sys="clr-namespace:System;assembly=netstandard" >
     <ContentPage.Content>
-        <StackLayout Padding="10">
-            <Label Text="Calendar Page"/>
+        <StackLayout x:Name="sampleLayout">
+            <syncfusion:SfSchedule ScheduleView="MonthView"
+	                                   ShowAppointmentsInline="True" x:Name="cal" 
+                                       MinDisplayDate="{Binding Source={x:Static sys:DateTime.Now}"
+                                       DataSource="{Binding Events}"
+                                       VerticalOptions="FillAndExpand">
+                <syncfusion:SfSchedule.AppointmentMapping>
+                    <syncfusion:ScheduleAppointmentMapping
+			                            SubjectMapping="Summary" 
+                                        NotesMapping="Description"
+			                            StartTimeMapping="StartTime"
+			                            EndTimeMapping="EndTime"
+                                        IsAllDayMapping="IsAllDay">    
+                    </syncfusion:ScheduleAppointmentMapping>
+                </syncfusion:SfSchedule.AppointmentMapping>
+            </syncfusion:SfSchedule>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

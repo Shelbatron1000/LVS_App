@@ -1,19 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using System.Diagnostics.Contracts;
 using System.Reflection;
-using Xamarin.Forms.Internals;
+using Google.Apis.Sheets.v4;
+using Google.Apis.Sheets.v4.Data;
+
+using System.Diagnostics;
 
 
-namespace Prototype{
+namespace Prototype
+{
     public class TeacherInfo
     {
         public List<Teacher> elemTeachData = new List<Teacher>();
@@ -21,49 +17,9 @@ namespace Prototype{
 
         public TeacherInfo()
         {
-            GetTeacherData();
+            GetDataFromDrive();
         }
 
-    private void GetTeacherData()
-        {
-            try
-            {
-                var assembly = typeof(TeacherInfo).GetTypeInfo().Assembly;
-                Stream stream = assembly.GetManifestResourceStream("Prototype.Teachers.ElementaryTeachers.csv");
-                using (var reader = new StreamReader(stream))
-                {
-                    string text;
-                    while ((text = reader.ReadLine()) != null)
-                    {
-                        ParseTeachers(text);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                System.Diagnostics.Debug.WriteLine(e);
-            }
-
-
-
-        }
-
-        // The following method will take a string and parse it and create a
-        //teacher object. It will then add the object to its respective list.
-        private void ParseTeachers(string line)
-        {
-            Char delim = ',';
-            String[] info = line.Split(delim);
-            Teacher temp = new Teacher(info[0], info[1], info[2], info[3], info[4]);
-            if (temp.School.Equals("Elementary"))
-            {
-                elemTeachData.Add(temp);
-            }
-            else if (temp.School.Equals("Secondary"))
-            {
-                secTeachData.Add(temp);
-            }
-        }
 
         //the following method will search a list of teachers via the name 
         // and return true if it exists.
@@ -91,6 +47,41 @@ namespace Prototype{
             }
             return false;
         }
+
+        //////////////GOOGLE SHEETS API CODE////
+
+        //The following method connects to the GoogkeSheet on Google Drive
+        public void GetDataFromDrive()
+        {
+            var service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
+            { 
+                ApiKey ="AIzaSyCUveAaJAyfqBoQUA0Z7iJXg4xQb8DHCG8",
+                ApplicationName = "LVIP-App"                  
+            });
+            string spreadSheetID = "1p12TY2VxI-6lDQENnQ8atwmr7vlqhodmDtByqXfpSyU";
+            SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadSheetID, "Sheet1!A2:F");
+            ValueRange response = request.Execute();
+            IList<IList<Object>> values = response.Values;
+            if (values !=null && values.Count >0)
+            {
+                foreach(var row in values)
+                {
+                    Teacher temp = new Teacher(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
+                    if (temp.School.Equals("Elementary"))
+                    {
+                        elemTeachData.Add(temp);
+                    }
+                    else if (temp.School.Equals("Secondary"))
+                    {
+                        secTeachData.Add(temp);
+                    }
+                }
+            }
+        }
+
+
+
+
 
 
         public struct Teacher
