@@ -15,6 +15,7 @@ namespace Prototype.Teachers
             TeacherPhone.Text = Teacher.Phone;
             TeacherEmail.Text = Teacher.Email;
             TeacherHours.Text = Teacher.OfficeHours;
+            TeacherNotes.Text = Teacher.Notes;
             this.Title = Teacher.Name;
 
         }
@@ -33,6 +34,39 @@ namespace Prototype.Teachers
                 Navigation.PushAsync(new WebViews.GenBookSecondaryWebView());
             }
             
+        }
+
+        //label must have the phone number as its text!
+        async void OnCall(object sender, EventArgs e)
+        {
+            Label lblClicked = (Label)sender;
+            string txt = lblClicked.Text;
+            //string cleanedTxt = CleanStringOfNonDigits(txt);
+
+            if (await this.DisplayAlert(
+                    "Dial",
+                    txt,
+                    "Yes",
+                    "No"))
+            {
+                var dialer = DependencyService.Get<IDialer>();
+                if (dialer != null)
+                    dialer.Dial(txt);
+            }
+
+        }
+
+        async void OnEmail(object sender, EventArgs e)
+        {
+            if (await this.DisplayAlert(
+                "Email",
+                Teacher.Email,
+                "Yes",
+                "No"))
+            {
+                Device.OpenUri(new Uri("mailto:"+Teacher.Email));
+            }
+
         }
     }
 }

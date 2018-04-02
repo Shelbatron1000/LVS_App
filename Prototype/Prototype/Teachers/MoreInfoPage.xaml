@@ -8,13 +8,27 @@
             <Label Text=" " BackgroundColor="Green"/>
             <Label x:Name="TeacherName" FontSize="Large" 
                 HorizontalTextAlignment="Center"/>
-            <Label x:Name="TeacherPhone" FontSize="Medium" 
-                HorizontalTextAlignment="Center"/>
-            <Label x:Name="TeacherEmail" FontSize="Medium"
-                HorizontalTextAlignment="Center"/>
+            <Label 
+                x:Name="TeacherPhone" 
+                FontSize="Medium" TextColor="Blue" 
+                HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCall"/>
+                    </Label.GestureRecognizers>
+            </Label>
+            <Label 
+                x:Name="TeacherEmail" 
+                FontSize="Medium" TextColor="Blue"
+                HorizontalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnEmail"/>
+                    </Label.GestureRecognizers>
+            </Label>
             <Label Text="Office Hours:" FontSize="Medium"
                 HorizontalTextAlignment="Center"/>
             <Label x:Name="TeacherHours" FontSize="Medium"
+                HorizontalTextAlignment="Center"/>
+            <Label x:Name="TeacherNotes" FontSize="Medium"
                 HorizontalTextAlignment="Center"/>
             <Label Text=" " BackgroundColor="Green"/>
             <Button x:Name="AppButton" Text="Make an Appointment"

@@ -66,7 +66,7 @@ namespace Prototype
             {
                 foreach(var row in values)
                 {
-                    Teacher temp = new Teacher(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString());
+                    Teacher temp = new Teacher(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString());
                     if (temp.School.Equals("Elementary"))
                     {
                         elemTeachData.Add(temp);
@@ -91,14 +91,16 @@ namespace Prototype
             public string Email { get; set; }
             public string Phone { get; set; }
             public string OfficeHours { get; set; }
+            public string Notes { get; set; }
 
-            public Teacher(string school, string name, string email, string phone, string officeHours)
+            public Teacher(string school, string name, string email, string phone, string officeHours, string notes)
             {
                 this.Name = name;
                 this.School = school;
                 this.Phone = phone;
                 this.Email = email;
                 this.OfficeHours = officeHours;
+                this.Notes = notes;
             }
 
         }
