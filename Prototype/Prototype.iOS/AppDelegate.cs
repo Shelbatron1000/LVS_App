@@ -48,7 +48,7 @@ namespace Prototype.iOS
             //UINavigationBar.Appearance.BarStyle = UIBarStyle.Black;
 
 
-            new SfScheduleRenderer();
+            SfScheduleRenderer.Init();
 
             return base.FinishedLaunching(app, options);
         }

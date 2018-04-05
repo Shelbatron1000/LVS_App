@@ -49,7 +49,8 @@ namespace Prototype.Calendar
             {
                 foreach (var eventItem in events.Items)
                 {
-                    Events.Add(new CalendarEvent(eventItem.Summary, eventItem.Description, eventItem.Location,  eventItem.Start, eventItem.End, eventItem.ICalUID, eventItem.ColorId));
+
+                    Events.Add(new CalendarEvent(eventItem.Summary, eventItem.Description, eventItem.Location,  eventItem.Start, eventItem.End, eventItem.ICalUID));
                 }
             }
             

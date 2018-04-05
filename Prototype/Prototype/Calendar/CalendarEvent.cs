@@ -13,14 +13,33 @@ namespace Prototype.Calendar
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public string iCalUID { get; set; }
-        public string Color { get; set; }
         public bool IsAllDay {get; set;}
 
-        public CalendarEvent(string summary, string description, string location,  EventDateTime startTime, EventDateTime endTime, string iCal, string color)
+        public CalendarEvent(string summary, string description, string location,  EventDateTime startTime, EventDateTime endTime, string iCal)
         {
-            Summary = summary;
-            Description = description;
-            Location = location;
+            if (summary != null)
+            {
+                Summary = summary;
+            } else
+            {
+                Summary = "";
+            }
+
+            if (description != null)
+            {
+                Description = description;
+            } else
+            {
+                Description = "";
+            }
+
+            if (location != null)
+            {
+                Location = location;
+            } else
+            {
+                Location = "";
+            }
 
             //check for all day events. All dat events have DateTime as null but has a Date
             if(startTime.DateTime == null && startTime.Date != null)
@@ -44,8 +63,14 @@ namespace Prototype.Calendar
                 IsAllDay = false;
             }
             //end 
-            iCalUID = iCal;
-            Color = color;
+
+            if (iCal != null)
+            {
+                iCalUID = iCal;
+            } else
+            {
+                iCalUID = "";
+            }
         }
     }
 }

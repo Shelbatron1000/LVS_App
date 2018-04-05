@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prototype.Calendar.CalendarPage"
              xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms" 
-             xmlns:sys="clr-namespace:System;assembly=netstandard" >
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" >
     <ContentPage.Content>
         <StackLayout x:Name="sampleLayout">
             <syncfusion:SfSchedule ScheduleView="MonthView"
