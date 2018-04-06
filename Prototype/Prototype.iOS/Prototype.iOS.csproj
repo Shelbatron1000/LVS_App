@@ -101,7 +101,6 @@
     <None Include="app.config" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
-    <Compile Include="PhoneDialer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
@@ -175,14 +174,14 @@
     <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NUnit.3.10.1\lib\netstandard2.0\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.SfSchedule.iOS, Version=16.1451.0.26, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.26\lib\Xamarin.iOS10\Syncfusion.SfSchedule.iOS.dll</HintPath>
+    <Reference Include="Syncfusion.SfSchedule.iOS, Version=16.1451.0.32, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.32\lib\Xamarin.iOS10\Syncfusion.SfSchedule.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.SfSchedule.XForms, Version=16.1451.0.26, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.26\lib\Xamarin.iOS10\Syncfusion.SfSchedule.XForms.dll</HintPath>
+    <Reference Include="Syncfusion.SfSchedule.XForms, Version=16.1451.0.32, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.32\lib\Xamarin.iOS10\Syncfusion.SfSchedule.XForms.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.SfSchedule.XForms.iOS, Version=16.1451.0.26, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.26\lib\Xamarin.iOS10\Syncfusion.SfSchedule.XForms.iOS.dll</HintPath>
+    <Reference Include="Syncfusion.SfSchedule.XForms.iOS, Version=16.1451.0.32, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.32\lib\Xamarin.iOS10\Syncfusion.SfSchedule.XForms.iOS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.IO.Compression" />

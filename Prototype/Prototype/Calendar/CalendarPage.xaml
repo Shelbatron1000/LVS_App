@@ -9,9 +9,10 @@
             <syncfusion:SfSchedule ScheduleView="MonthView"
 	                                   ShowAppointmentsInline="True" x:Name="cal" 
                                        MinDisplayDate="{Binding Source={x:Static sys:DateTime.Now}"
-                                       DataSource="{Binding Events}"
-                                       VerticalOptions="FillAndExpand">
-                <syncfusion:SfSchedule.AppointmentMapping>
+                                       DataSource="{Binding scheduleAppointmentCollection}"
+                                       VerticalOptions="FillAndExpand"
+                                       MonthInlineAppointmentTapped="Schedule_MonthInlineAppointmentTapped">
+                <!--<syncfusion:SfSchedule.AppointmentMapping>
                     <syncfusion:ScheduleAppointmentMapping
 			                            SubjectMapping="Summary" 
                                         NotesMapping="Description"
@@ -19,7 +20,7 @@
 			                            EndTimeMapping="EndTime"
                                         IsAllDayMapping="IsAllDay">    
                     </syncfusion:ScheduleAppointmentMapping>
-                </syncfusion:SfSchedule.AppointmentMapping>
+                </syncfusion:SfSchedule.AppointmentMapping>-->
             </syncfusion:SfSchedule>
         </StackLayout>
     </ContentPage.Content>

@@ -52,9 +52,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="HybridWebViewRenderer.cs" />
-    <Compile Include="IDialer.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="PhoneDialer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -139,14 +137,14 @@
     <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NUnit.3.10.1\lib\netstandard2.0\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.SfSchedule.Android, Version=16.1451.0.26, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.26\lib\MonoAndroid10\Syncfusion.SfSchedule.Android.dll</HintPath>
+    <Reference Include="Syncfusion.SfSchedule.Android, Version=16.1451.0.32, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.32\lib\MonoAndroid10\Syncfusion.SfSchedule.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.SfSchedule.XForms, Version=16.1451.0.26, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.26\lib\MonoAndroid10\Syncfusion.SfSchedule.XForms.dll</HintPath>
+    <Reference Include="Syncfusion.SfSchedule.XForms, Version=16.1451.0.32, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.32\lib\MonoAndroid10\Syncfusion.SfSchedule.XForms.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.SfSchedule.XForms.Android, Version=16.1451.0.26, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.26\lib\MonoAndroid10\Syncfusion.SfSchedule.XForms.Android.dll</HintPath>
+    <Reference Include="Syncfusion.SfSchedule.XForms.Android, Version=16.1451.0.32, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfSchedule.16.1.0.32\lib\MonoAndroid10\Syncfusion.SfSchedule.XForms.Android.dll</HintPath>
     </Reference>
     <Reference Include="System, Version=2.0.5.0" />
     <Reference Include="System.Core" />
