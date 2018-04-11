@@ -47,6 +47,7 @@ namespace Prototype.Apply
             {
 
                 //call insert info
+                InsertInfo();
 
                 //Push the next page, Step3, onto the Nav stack, pass it the Application object that was created here.
                 Apply.Step4 newPage = new Apply.Step4(Application);
@@ -70,7 +71,15 @@ namespace Prototype.Apply
 
         void InsertInfo()
         {
-            //Use this method to insert the info from the GUI into the Application object
+            Guardian guardian = new Guardian {
+                FirstName = GuardianFirstName.Text,
+                LastName = GuardianLastName.Text,
+                Relationship = GuardianRelationship.Text,
+                GuardianPhoneNumber = GuardianPhoneNumber.Text,
+                GuardianPhoneType = PhoneTypePicker.SelectedItem.ToString(),
+                EmailAddress = GuardianEmail.Text
+            };
+            Application.Guardian = guardian;
         }
     }
 }

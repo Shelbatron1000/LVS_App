@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using System.Text;
 
 namespace Prototype.Apply
 {
@@ -21,11 +22,45 @@ namespace Prototype.Apply
             };
             PhoneTypePicker.ItemsSource = Types;
             StatePicker.ItemsSource = StateAbv;
-
+           
         }
         public Step1()
         {
             InitializeComponent();
+        }
+
+        //this method is used to display the date entry field in a easy to read
+        // format, i.e. MM/DD/YYYY
+        void DateUnfocusedFormat(object sender, EventArgs e)
+        {
+            InputValidation validate = new InputValidation();
+            if(validate.EightDigitDate(DOB)){
+                string date = DOB.Text;
+                var temp = date.ToCharArray();
+                date = String.Format("{0}{1}/{2}{3}/{4}{5}{6}{7}",
+                                     temp[0], temp[1], temp[2], temp[3],
+                                     temp[4], temp[5], temp[6], temp[7]);
+                DOB.Text = date;
+            }else
+            {
+                DisplayAlert("Invalid Date", "Please make sure the Date is valid (mm/dd/yyyy)", "OK");
+            }
+
+        }
+
+        //this method is used to change the display of the date in the DOB entry
+        //from MM/DD/YYYY to MMDDYYYY removing the /'s
+        void DateFocusedFormat(object sender, EventArgs e)
+        {
+            if(DOB.Text != null){
+                var temp = DOB.Text.Split('/');
+                DOB.Text = "";
+                foreach(string part in temp)
+                {
+                    DOB.Text += part;
+                }
+            }
+
         }
 
         void LoadStep2(Object sender, EventArgs e)
@@ -37,6 +72,11 @@ namespace Prototype.Apply
             if(AnyFieldEmptyOrNull(validate)) //if fields are empty
             {
                 DisplayAlert("Empty Field(s)", "Please input all information fields", "OK");
+            }
+            //check for valid date
+            else if(!validate.ValidDate(DOB))
+            {
+                DisplayAlert("Invalid Date", "Please make sure the Date is valid (mm/dd/yyyy)", "OK");
             }
             //next check for a valid email
             else if(!validate.ValidEmail(Email)) //not a valid email
@@ -57,7 +97,7 @@ namespace Prototype.Apply
             {
 
                 //call insert info
-
+                InsertInfo();
 
                 //Push the next page, Step2, onto the Nav stack, pass it the Application object that was created here.
                 Apply.Step2 newPage = new Apply.Step2(Application);
@@ -71,6 +111,7 @@ namespace Prototype.Apply
             if(validate.EmptyorNull(FirstName) ||
                validate.EmptyorNull(MiddleName) || //clarify if this is allowed to be empty
                validate.EmptyorNull(LastName) ||
+               validate.EmptyorNull(DOB) ||
                validate.EmptyorNull(Email) ||
                validate.EmptyorNull(PhoneNumber) ||
                validate.EmptyorNull(PhoneTypePicker) ||
@@ -92,7 +133,7 @@ namespace Prototype.Apply
                 FirstName = FirstName.Text,
                 MiddleName = MiddleName.Text,
                 LastName = LastName.Text,
-                DOB = DOB.Date.ToString(),
+                DOB = DOB.Text,
                 StudentEmail = Email.Text,
                 PhoneNumber = PhoneNumber.Text,
                 PhoneType = PhoneTypePicker.SelectedItem.ToString(),
@@ -103,7 +144,6 @@ namespace Prototype.Apply
                 ZipCode = ZipCode.Text
             };
             Application.Student = student;
-        
         }
 
 
@@ -167,4 +207,6 @@ namespace Prototype.Apply
             return States;
         }
     }
+
+
 }

@@ -35,7 +35,7 @@ namespace Prototype.Apply
                 //validate certain fields
 
                 //call insert info
-
+                InsertInfo();
 
                 //Push the next page, Step3, onto the Nav stack, pass it the Application object that was created here.
                 Apply.Step3 newPage = new Apply.Step3(Application);
@@ -59,8 +59,14 @@ namespace Prototype.Apply
 
         void InsertInfo()
         {
-            //Use this method to insert the info from the GUI into the Application object
-
+            SchoolInfo schoolInfo = new SchoolInfo { 
+                SchoolName = SchoolName.Text,
+                District = SchoolDistrict.Text,
+                County = SchoolCounty.Text,
+                State = StatePicker.SelectedItem.ToString(),
+                Grade = GradePicker.SelectedItem.ToString()
+            };
+            Application.LastSchool = schoolInfo;
         }
 
         public ObservableCollection<string> BuildGradeList()

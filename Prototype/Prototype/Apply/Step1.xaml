@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Prototype.Apply.Step1" xmlns:sys="clr-namespace:System;assembly=mscorlib">
-	<ContentPage.Content>
+    <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="5">
                 <Label Text="First, tell us about the student"
@@ -15,10 +15,12 @@
                     PlaceholderColor="Blue" HorizontalTextAlignment="Center"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Label Text="Date Of Birth:" TextColor="Blue" Margin="10"/>
-                    <DatePicker x:Name="DOB" HorizontalOptions="Center"
-                       TextColor="Blue" Format="MM-dd-yyyy"
-                       MaximumDate="{x:Static sys:DateTime.Now}"
-                       MinimumDate="12-31-1995"/>
+                    <Entry AutomationId="DOB" x:Name="DOB" Placeholder="MM/DD/YYYY"
+                           PlaceholderColor="Blue" HorizontalTextAlignment="Center"
+                           Focused="DateFocusedFormat"
+
+                           Unfocused="DateUnfocusedFormat"
+                           Keyboard="Numeric"/>
                 </StackLayout>
                 <Entry x:Name="Email" Placeholder="Email" 
                      Keyboard="Email" PlaceholderColor="Blue"
@@ -52,5 +54,5 @@
                     HorizontalOptions="End" Margin="0,0,20,0" Clicked="LoadStep2" />
             </StackLayout>
         </ScrollView>
-	</ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>
