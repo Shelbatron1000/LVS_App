@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Xamarin.Forms;
 
 namespace Prototype.Teachers
@@ -41,7 +42,7 @@ namespace Prototype.Teachers
         {
             Label lblClicked = (Label)sender;
             string txt = lblClicked.Text;
-            //string cleanedTxt = CleanStringOfNonDigits(txt);
+            string cleanedTxt = CleanStringOfNonDigits(txt);
 
             if (await this.DisplayAlert(
                     "Dial",
@@ -49,7 +50,7 @@ namespace Prototype.Teachers
                     "Yes",
                     "No"))
             {
-                Device.OpenUri(new Uri("tel://" + txt));
+                Device.OpenUri(new Uri("tel://" + cleanedTxt));
             }
 
         }
@@ -66,6 +67,21 @@ namespace Prototype.Teachers
             }
 
         }
+
+        //clean label text of any non-numeric characters.
+        private static Regex rxDigits = new Regex(@"[\d]+");
+        private string CleanStringOfNonDigits(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return s;
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            for (Match m = rxDigits.Match(s); m.Success; m = m.NextMatch())
+            {
+                sb.Append(m.Value);
+            }
+            string cleaned = sb.ToString();
+            return cleaned;
+        }
+
     }
 }
 //

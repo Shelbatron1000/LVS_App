@@ -66,11 +66,14 @@
                     BackgroundColor="Green"
                     TextColor="White"/>
                <Label x:Name="Q6"
-                    Text="If the student has been enrolled in any virtual course, when they enrolled?" 
+                    Text="If the student has been enrolled in any virtual course, when were they enrolled?" 
                     HorizontalTextAlignment="Start"
                     TextColor="Blue" IsVisible="false" IsEnabled="false"/>
-                <DatePicker x:Name="Q6Response" HorizontalOptions="CenterAndExpand"
-                    Format="MMM - yyyy" IsVisible="false" IsEnabled="false"/>
+                <Entry x:Name="Q6Response" HorizontalOptions="CenterAndExpand"
+                    IsVisible="false" IsEnabled="false" Placeholder="MM/DD/YYYY"
+                       PlaceholderColor="Blue"
+                       Focused="DateFocusedFormat"
+                       Unfocused="DateUnfocusedFormat"/>
                 <Label x:Name="EndQ6Bar" Text=" " IsVisible="false"
                     BackgroundColor="Green"
                     TextColor="White"/>
