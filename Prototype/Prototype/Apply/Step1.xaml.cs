@@ -51,7 +51,7 @@ namespace Prototype.Apply
             //next check for valid zip code
             else if(!validate.ValidZip(ZipCode)) //not a valid ZIP
             {
-                DisplayAlert("Invalid Zip Code", "Please input a valid 5 gigit ZIP Code", "OK");
+                DisplayAlert("Invalid Zip Code", "Please input a valid 5 digit ZIP Code", "OK");
             }
             else
             {

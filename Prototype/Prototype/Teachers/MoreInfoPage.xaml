@@ -4,6 +4,7 @@
     x:Class="Prototype.Teachers.MoreInfoPage"
              Title="">
     <ContentPage.Content>
+    <ScrollView>
         <StackLayout Padding="10">
             <Label Text=" " BackgroundColor="Green"/>
             <Label x:Name="TeacherName" FontSize="Large" 
@@ -31,10 +32,10 @@
             <Label x:Name="TeacherNotes" FontSize="Medium"
                 HorizontalTextAlignment="Center"/>
             <Label Text=" " BackgroundColor="Green"/>
-            <Button x:Name="AppButton" Text="Make an Appointment"
+                <Button x:Name="AppButton" Text="Make an Appointment"
                     Clicked="ToGenBook"/>
         </StackLayout>
-        
+    </ScrollView>
     </ContentPage.Content>
 </ContentPage>
 

@@ -3,24 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prototype.Calendar.CalendarPage"
              xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms" 
-             xmlns:sys="clr-namespace:System;assembly=mscorlib" >
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             Title="Calendar">
     <ContentPage.Content>
-        <StackLayout x:Name="sampleLayout">
-            <syncfusion:SfSchedule ScheduleView="MonthView"
-	                                   ShowAppointmentsInline="True" x:Name="cal" 
-                                       MinDisplayDate="{Binding Source={x:Static sys:DateTime.Now}"
-                                       DataSource="{Binding scheduleAppointmentCollection}"
-                                       VerticalOptions="FillAndExpand"
-                                       MonthInlineAppointmentTapped="Schedule_MonthInlineAppointmentTapped">
-                <!--<syncfusion:SfSchedule.AppointmentMapping>
+        <StackLayout x:Name="layout">
+            <syncfusion:SfSchedule      ScheduleView="MonthView"
+	                                    ShowAppointmentsInline="True" x:Name="cal" 
+                                        MinDisplayDate="{Binding Source={x:Static sys:DateTime.Now}"
+                                        DataSource="{Binding Events}"
+                                        VerticalOptions="FillAndExpand"
+                                        HorizontalOptions="FillAndExpand"
+                                        MonthInlineAppointmentTapped="Schedule_MonthInlineAppointmentTapped"
+                                        OnMonthInlineAppointmentLoadedEvent="Schedule_OnMonthInlineAppointmentLoadedEvent"
+                                        CellTapped="Schedule_CellTapped">
+                <syncfusion:SfSchedule.AppointmentMapping>
                     <syncfusion:ScheduleAppointmentMapping
 			                            SubjectMapping="Summary" 
-                                        NotesMapping="Description"
+			                            LocationMapping="Location"
 			                            StartTimeMapping="StartTime"
-			                            EndTimeMapping="EndTime"
-                                        IsAllDayMapping="IsAllDay">    
+			                            EndTimeMapping="EndTime">
                     </syncfusion:ScheduleAppointmentMapping>
-                </syncfusion:SfSchedule.AppointmentMapping>-->
+                </syncfusion:SfSchedule.AppointmentMapping>
             </syncfusion:SfSchedule>
         </StackLayout>
     </ContentPage.Content>

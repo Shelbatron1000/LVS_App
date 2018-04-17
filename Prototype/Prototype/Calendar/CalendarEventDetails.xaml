@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Prototype.WebViews;assembly=Prototype"
+             x:Class="Prototype.Calendar.CalendarEventDetails" >
+    <ContentPage.Content>
+            <StackLayout Padding="5" x:Name="Stack" Orientation="Vertical">
+            <StackLayout x:Name="Stack1" HorizontalOptions="FillAndExpand">
+                <Label x:Name="EventName" FontSize="Large" 
+                            HorizontalTextAlignment="Center"/>
+                <Label      x:Name="EventLocation" 
+                            FontSize="Medium" TextColor="Blue" 
+                            HorizontalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNavigate"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label 
+                            x:Name="EventTime" 
+                            FontSize="Medium"
+                            HorizontalTextAlignment="Center">
+                </Label>
+                <Label      x:Name="EventCal" 
+                            FontSize="Small"
+                            TextColor="Blue"
+                            Text="Add to my Google Calendar"
+                            HorizontalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCalAdd"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label  x:Name="EventAttachments" 
+                            IsVisible="False"
+                            FontSize="Medium"
+                            HorizontalTextAlignment="Center">
+                </Label>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Picker x:Name="AttachmentPicker"                   
+                            WidthRequest = "250"
+                            HeightRequest = "50"
+                            IsVisible="False"/>
+                    <Button x:Name="AttachmentButton" Text="Open" Clicked="OpenAttachment" IsVisible="False" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         x:Name="Stack2"
+                         WidthRequest="350">
+                <local:TransparentWebView x:Name="EventDescription" VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand" Navigating="OnWebNavigating">
+                    <WebView.Source>
+                        <HtmlWebViewSource Html="{Binding HtmlText}"/>
+                    </WebView.Source>
+                </local:TransparentWebView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

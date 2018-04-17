@@ -33,8 +33,6 @@ namespace Prototype.iOS
             }
             if (e.NewElement != null)
             {
-                //Control.ScalesPageToFit = true;
-                //Control.Frame = this.Frame;
                 string url = Element.Url;
                 Control.LoadRequest(new NSUrlRequest(new NSUrl(url)));
             }

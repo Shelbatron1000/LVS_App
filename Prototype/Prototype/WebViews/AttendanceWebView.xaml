@@ -25,7 +25,7 @@
                      AutomationId="Browser"
                      VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand"
-                     Url="https://secureis.leeschools.net/LvipLogin/Forms/LVIPLogin.aspx?ReturnUrl=%2fLVIPlogin%2fforms%2flvipwelcome.aspx"/>
+                     Url="https://secureis.leeschools.net/LvipLogin/Forms/LVIPLogin.aspx?ReturnUrl=%2fLVIPlogin%2fforms%2flvipwelcome.aspx" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

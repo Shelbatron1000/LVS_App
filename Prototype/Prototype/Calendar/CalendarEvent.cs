@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using Google.Apis.Calendar.v3.Data;
 
 namespace Prototype.Calendar
 {
-    public struct CalendarEvent
+    public class CalendarEvent
     {
         public string Summary { get; set; }
         public string Description { get; set; }
@@ -14,8 +15,11 @@ namespace Prototype.Calendar
         public DateTime EndTime { get; set; }
         public string iCalUID { get; set; }
         public bool IsAllDay {get; set;}
+        public IList<EventAttachment> Attachments { get; set; }
+        public string Link { get; set; }
+        public string Id { get; set; }
 
-        public CalendarEvent(string summary, string description, string location,  EventDateTime startTime, EventDateTime endTime, string iCal)
+        public CalendarEvent(string summary, string description, string location,  EventDateTime startTime, EventDateTime endTime, string iCal, IList<EventAttachment> attachments, string link, string id)
         {
             if (summary != null)
             {
@@ -71,6 +75,60 @@ namespace Prototype.Calendar
             {
                 iCalUID = "";
             }
+
+            Attachments = attachments;
+            Link = link;
+            Id = id;
+        }
+
+        public string GetTimeString()
+        {
+            String time = "";
+
+            if (IsAllDay == true && StartTime.Date == EndTime.Date) //no times and only one day
+            {
+                time = StartTime.ToString("MM/dd/yy");
+
+            }
+            else if (IsAllDay == true && StartTime.Date != EndTime.Date) //no times but more than one day
+            {
+                time = StartTime.ToString("MM/dd/yy") + " - " + EndTime.ToString("MM/dd/yy");
+
+            }
+            else if (IsAllDay == false && StartTime.Date != EndTime.Date) //has times but is more than a day
+            {
+                time = StartTime.ToString("MM/dd/yy h:mm tt") + " - " + EndTime.ToString("MM/dd/yy h:mm tt");
+
+            }
+            else if (IsAllDay == false && StartTime.Date == EndTime.Date) //has times and is in one day
+            {
+                time = StartTime.ToString("MM/dd/yy") + " \n" + StartTime.ToString("h:mm tt") + " - " + EndTime.ToString("h:mm tt");
+
+            }
+            else //default
+            {
+                time = StartTime.ToString("MM/dd/yy h:mm tt") + " - " + EndTime.ToString("MM/dd/yy h:mm tt");
+
+            }
+
+            return time;
+        }
+
+        public string GetCalAddLink()
+        {
+            string tempId = Id;
+
+            if (Id.Contains("@"))
+            {
+                tempId = Id.Replace("@", "%40");
+            }
+            string eid = Link.Split('=')[1];
+
+            //Currently opens event in native web browser (desktop version). This must happen because of Google/Android current bug that
+            //results in an "Event Not Found" error if the event is opened in the Google Calendar App. Once the bug is resolved, then this
+            //can be changed by replacing "render?" with "event?"
+            return "https://calendar.google.com/render?action=TEMPLATE&tmeid=" + eid + "&tmsrc=" + tempId;
+
         }
     }
 }

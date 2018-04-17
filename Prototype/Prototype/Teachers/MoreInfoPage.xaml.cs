@@ -49,9 +49,7 @@ namespace Prototype.Teachers
                     "Yes",
                     "No"))
             {
-                var dialer = DependencyService.Get<IDialer>();
-                if (dialer != null)
-                    dialer.Dial(txt);
+                Device.OpenUri(new Uri("tel://" + txt));
             }
 
         }
