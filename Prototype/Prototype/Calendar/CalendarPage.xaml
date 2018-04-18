@@ -14,7 +14,6 @@
                                         VerticalOptions="FillAndExpand"
                                         HorizontalOptions="FillAndExpand"
                                         MonthInlineAppointmentTapped="Schedule_MonthInlineAppointmentTapped"
-                                        OnMonthInlineAppointmentLoadedEvent="Schedule_OnMonthInlineAppointmentLoadedEvent"
                                         CellTapped="Schedule_CellTapped">
                 <syncfusion:SfSchedule.AppointmentMapping>
                     <syncfusion:ScheduleAppointmentMapping

@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Prototype.WebViews;assembly=Prototype"
              x:Class="Prototype.Calendar.CalendarEventDetails" >
     <ContentPage.Content>
-            <StackLayout Padding="5" x:Name="Stack" Orientation="Vertical">
+            <StackLayout Padding="5" x:Name="StackOuter" Orientation="Vertical">
             <StackLayout x:Name="Stack1" HorizontalOptions="FillAndExpand">
                 <Label x:Name="EventName" FontSize="Large" 
                             HorizontalTextAlignment="Center"/>

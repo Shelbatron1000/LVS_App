@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using Google.Apis.Calendar.v3.Data;
 
 namespace Prototype.Calendar
@@ -19,7 +17,8 @@ namespace Prototype.Calendar
         public string Link { get; set; }
         public string Id { get; set; }
 
-        public CalendarEvent(string summary, string description, string location,  EventDateTime startTime, EventDateTime endTime, string iCal, IList<EventAttachment> attachments, string link, string id)
+        public CalendarEvent(string summary, string description, string location,  EventDateTime startTime, 
+            EventDateTime endTime, string iCal, IList<EventAttachment> attachments, string link, string id)
         {
             if (summary != null)
             {
@@ -45,7 +44,7 @@ namespace Prototype.Calendar
                 Location = "";
             }
 
-            //check for all day events. All dat events have DateTime as null but has a Date
+            //check for all day events. All day events have DateTime as null but has a Date
             if(startTime.DateTime == null && startTime.Date != null)
             {
                 StartTime = Convert.ToDateTime(startTime.Date.ToString() + " 0:0:0");
@@ -57,7 +56,7 @@ namespace Prototype.Calendar
             }
 
             if (endTime.DateTime == null && endTime.Date != null)
-            {
+            {                
                 EndTime = Convert.ToDateTime(endTime.Date.ToString() + " 0:0:0");
                 IsAllDay = true;
             }
@@ -83,16 +82,21 @@ namespace Prototype.Calendar
 
         public string GetTimeString()
         {
+            /* The AddDays(-1) is for all day events because the standard is that an all day event 
+             * is from one day at 0:0:0 (midnight) to the next day at 0:0:0 (midnight). This is how
+             * standard calendars process all day events. For text purposes below, we subtract a day
+             * from the end day.
+             */
             String time = "";
 
-            if (IsAllDay == true && StartTime.Date == EndTime.Date) //no times and only one day
+            if (IsAllDay == true && StartTime.Date == EndTime.Date.AddDays(-1)) //no times and only one day
             {
                 time = StartTime.ToString("MM/dd/yy");
 
             }
-            else if (IsAllDay == true && StartTime.Date != EndTime.Date) //no times but more than one day
+            else if (IsAllDay == true && StartTime.Date != EndTime.Date.AddDays(-1)) //no times but more than one day
             {
-                time = StartTime.ToString("MM/dd/yy") + " - " + EndTime.ToString("MM/dd/yy");
+                time = StartTime.ToString("MM/dd/yy") + " - " + EndTime.AddDays(-1).ToString("MM/dd/yy");
 
             }
             else if (IsAllDay == false && StartTime.Date != EndTime.Date) //has times but is more than a day

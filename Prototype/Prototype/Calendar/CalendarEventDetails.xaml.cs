@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using Google.Apis.Calendar.v3.Data;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,6 +15,7 @@ namespace Prototype.Calendar
         CalendarEvent thisEvent;
         private double width;
         private double height;
+        bool hasDescription = false;
         public CalendarEventDetails()
         {
             InitializeComponent();
@@ -27,6 +25,10 @@ namespace Prototype.Calendar
         {
             InitializeComponent();
             thisEvent = myEvent;
+            if(thisEvent.Description != "")
+            {
+                hasDescription = true;
+            }
             EventName.Text = thisEvent.Summary;
             EventLocation.Text = thisEvent.Location;
             EventTime.Text = thisEvent.GetTimeString();
@@ -129,7 +131,10 @@ namespace Prototype.Calendar
                     Debug.WriteLine("Horizontal");
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        Stack.Orientation = StackOrientation.Horizontal;
+                        if (hasDescription)
+                        {
+                            StackOuter.Orientation = StackOrientation.Horizontal;
+                        }
                     });
                 }
                 else
@@ -137,12 +142,11 @@ namespace Prototype.Calendar
                     Debug.WriteLine("Vertical");
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                       Stack.Orientation = StackOrientation.Vertical;
+                       StackOuter.Orientation = StackOrientation.Vertical;
                     });
 
                 }
             }
-            NavigationPage.SetHasNavigationBar(this, true);
         }
     }
 }

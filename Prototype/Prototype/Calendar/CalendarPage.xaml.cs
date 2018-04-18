@@ -1,13 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Collections.Generic;
 using Syncfusion.SfSchedule.XForms;
 using System.Diagnostics;
-using UIKit;
 
 namespace Prototype.Calendar
 {
@@ -45,16 +40,6 @@ namespace Prototype.Calendar
             Navigation.PushAsync(newPage);
         }
 
-        private void Schedule_OnMonthInlineAppointmentLoadedEvent(object sender, MonthInlineAppointmentLoadedEventArgs args)
-        {          
-            //var appointment = (args.appointment as ScheduleAppointment);
-            //Button button = new Button();
-            //button.Text = appointment.Subject;
-            //button.BackgroundColor = Color.Blue;
-            //button.TextColor = Color.White;
-            //args.view = button;
-        }
-
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
@@ -67,7 +52,15 @@ namespace Prototype.Calendar
                     Debug.WriteLine("Horizontal");
                     Device.BeginInvokeOnMainThread(() =>
                     {                     
-                        //NavigationPage.SetHasNavigationBar(this, false);
+                        /* Switching to Week View
+                         * 
+                         * Current Bug on Week View: All Day Events show up as an extra day long.
+                         * Should not be programmed to subtract a day in datetime because the overall standard
+                         * is that all day events are from one day at 0:0:0 to the next day at 0:0:0.
+                         * 
+                         * Waiting on SyncFusion to fix this bug...
+                         */
+
                         cal.ScheduleView = ScheduleView.WeekView;
                         cal.TimeIntervalHeight = 50;
                         cal.ViewHeaderHeight = 55;
@@ -76,9 +69,11 @@ namespace Prototype.Calendar
                         WeekViewSettings weekViewSettings = new WeekViewSettings();
                         //Creating new instance of WeekLabelSettings
                         WeekLabelSettings weekLabelSettings = new WeekLabelSettings();
-                        //Customizing date format
+                            
+                        //custom UI
                         weekLabelSettings.DateFormat = "dd";
                         weekViewSettings.WeekLabelSettings = weekLabelSettings;
+                        weekViewSettings.ShowAllDay = true;
                         weekViewSettings.StartHour = 05;
                         cal.WeekViewSettings = weekViewSettings;
 
@@ -92,7 +87,6 @@ namespace Prototype.Calendar
                     Debug.WriteLine("Vertical");
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        NavigationPage.SetHasNavigationBar(this, true);
                         cal.ScheduleView = ScheduleView.MonthView;
                     });
 
@@ -106,7 +100,6 @@ namespace Prototype.Calendar
 
             if (cal.ScheduleView == ScheduleView.WeekView && appointment != null)
             {
-
                 //Push the next page onto the Nav stack, pass it the appointment object
                 CalendarEventDetails newPage = new CalendarEventDetails(appointment);
                 Navigation.PushAsync(newPage);
