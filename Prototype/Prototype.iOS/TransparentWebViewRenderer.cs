@@ -22,6 +22,7 @@ namespace Prototype.iOS
                 // Setting the background as transparent
                 this.Opaque = false;
                 this.BackgroundColor = Color.Transparent.ToUIColor();
+                
             }
         }
 }

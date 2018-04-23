@@ -4,7 +4,7 @@
              x:Class="Prototype.AppNavigationPageMaster"
              Icon="hamburger.png"
              Title="Master"
-             BackgroundColor="#3399ff">
+             BackgroundColor="#36b6e5">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <OnPlatform.Platforms>

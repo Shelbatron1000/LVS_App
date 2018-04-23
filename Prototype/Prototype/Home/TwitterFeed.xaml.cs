@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,39 +7,40 @@ namespace Prototype.Home
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TwitterFeed : ContentPage
     {
+        string currentUrl = "https://twitter.com/LeeVirtual?ref_src=twsrc%5Etfw";
         public TwitterFeed()
         {
             InitializeComponent();
-            var htmlSource = new HtmlWebViewSource();
-            htmlSource.Html = @" <a class=""twitter-timeline"" href=""https://twitter.com/LeeVirtual?ref_src=twsrc%5Etfw""> Tweets by LeeVirtual</a><script async src=""https://platform.twitter.com/widgets.js"" charset=""utf-8""></script>";
-            webView.Source = htmlSource;
+        }
 
-            webView.Navigating += async (sender, e) => {
-                string url = e.Url;
+        private void backClicked(object sender, EventArgs e)
+        {
+            // Check to see if there is anywhere to go back to
+            if (Browser.CanGoBack)
+            {
+                Browser.GoBack();
+            }
+        }
 
-                Debug.WriteLine(url);
-            
-                if ( url.StartsWith("file://") || url.StartsWith("about:") || url.Equals("https://syndication.twitter.com/i/jot") || url.Equals("https://platform.twitter.com/jot.html"))
-                {
-                    //do nothing and let it load
+        private void openClicked(object sender, EventArgs e)
+        {
+            //open the current url in the native browser
+            Device.OpenUri(new Uri(currentUrl));
+        }
 
-                }
-                else
-                {
-                    //prevent further navigation in the webview
-                    e.Cancel = true;
-                    if (await this.DisplayAlert(
-                        "Navigate",
-                        "Open this link in your web browser?",
-                        "Yes",
-                        "No"))
-                    {
-                        Device.OpenUri(new Uri(url));
-                    }
-                }
+        private void forwardClicked(object sender, EventArgs e)
+        {
+            // Check to see if there is anywhere to go forward to
+            if (Browser.CanGoForward)
+            {
+                Browser.GoForward();
+            }
+        }
 
-
-            };
+        public void OnNavigatedHandler(object sender, WebNavigatedEventArgs e)
+        {
+            //keep track of what url the user is currently on
+            currentUrl = e.Url;
         }
     }
 }

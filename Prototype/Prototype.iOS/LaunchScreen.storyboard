@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10109" systemVersion="15G20015" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="219">
+    <dependencies>
+        <deployment version="2048" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10083"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="218">
+            <objects>
+                <viewController id="219" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="216"/>
+                        <viewControllerLayoutGuide type="bottom" id="217"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="220">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-App-76x76.png" translatesAutoresizingMaskIntoConstraints="NO" id="439">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="228" id="444"/>
+                                    <constraint firstAttribute="width" constant="228" id="445"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        <constraints>
+                            <constraint firstItem="439" firstAttribute="centerX" secondItem="220" secondAttribute="centerX" id="673"/>
+                            <constraint firstItem="439" firstAttribute="centerY" secondItem="220" secondAttribute="centerY" id="675"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="221" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234" y="-376"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icon-App-76x76.png" width="76" height="76"/>
+        <image name="facebookicon.png" width="50" height="50"/>
+        <image name="hamburger.png" width="14" height="15"/>
+        <image name="home_icon.png" width="45" height="45"/>
+        <image name="logo_lee_virtual_school.png" width="80" height="80"/>
+        <image name="lvs_group.jpg" width="789" height="426"/>
+        <image name="twittericon.png" width="50" height="50"/>
+    </resources>
+</document>

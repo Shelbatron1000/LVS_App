@@ -4,10 +4,17 @@
              x:Class="Prototype.Home.FacebookFeed"
              Title="Facebook">
     <ContentPage.Content>
-        <WebView
-            x:Name="webView"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="FillAndExpand"
-            />
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="10,10">
+                <Button Text="Back" HorizontalOptions="StartAndExpand" Clicked="backClicked" />
+                <Button Text="Open in Browser" HorizontalOptions="StartAndExpand" Clicked="openClicked"/>
+                <Button Text="Forward" HorizontalOptions="End" Clicked="forwardClicked" />
+            </StackLayout>
+            <WebView
+                x:Name="Browser"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                Navigated="OnNavigatedHandler"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -5,7 +5,7 @@
              x:Class="Prototype.Calendar.CalendarEventDetails" >
     <ContentPage.Content>
             <StackLayout Padding="5" x:Name="StackOuter" Orientation="Vertical">
-            <StackLayout x:Name="Stack1" HorizontalOptions="FillAndExpand">
+            <StackLayout x:Name="Stack1" HorizontalOptions="FillAndExpand" WidthRequest="350">
                 <Label x:Name="EventName" FontSize="Large" 
                             HorizontalTextAlignment="Center"/>
                 <Label      x:Name="EventLocation" 
@@ -45,7 +45,7 @@
             <StackLayout VerticalOptions="FillAndExpand"
                          HorizontalOptions="FillAndExpand"
                          x:Name="Stack2"
-                         WidthRequest="350">
+                         WidthRequest="250">
                 <local:TransparentWebView x:Name="EventDescription" VerticalOptions="FillAndExpand"
                          HorizontalOptions="FillAndExpand" Navigating="OnWebNavigating">
                     <WebView.Source>

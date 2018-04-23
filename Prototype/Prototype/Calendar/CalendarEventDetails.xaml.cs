@@ -13,33 +13,57 @@ namespace Prototype.Calendar
     public partial class CalendarEventDetails : ContentPage
     {
         CalendarEvent thisEvent;
+        private string calId; //calendar id is needed to create URL to share an event
         private double width;
         private double height;
-        bool hasDescription = false;
+        private bool hasDescription = true;
         public CalendarEventDetails()
         {
             InitializeComponent();
         }
 
-        public CalendarEventDetails(CalendarEvent myEvent)
+        public CalendarEventDetails(CalendarEvent myEvent, string calendarId)
         {
             InitializeComponent();
             thisEvent = myEvent;
-            if(thisEvent.Description != "")
-            {
-                hasDescription = true;
-            }
+            hasDescription = CheckForDescription(thisEvent.Description);
+            calId = calendarId;
             EventName.Text = thisEvent.Summary;
             EventLocation.Text = thisEvent.Location;
             EventTime.Text = thisEvent.GetTimeString();
             HtmlWebViewSource html = new HtmlWebViewSource
             {
-                Html = thisEvent.Description
+                Html = SetDescription(thisEvent.Description)
             };
 
             EventDescription.Source = html;
 
             HasAttachments();
+        }
+
+        public string SetDescription(string description)
+        {
+            /* Prevent font scaling in orientation change */
+            string header = "<!DOCTYPE html><html><head><style> html { -webkit-text-size-adjust: none;}</style></head><body>";
+            string footer = "</body></html>";
+            return header + description + footer;
+        }
+
+        public bool CheckForDescription(string x)
+        {
+            x = x.Trim();
+            x = x.Replace("\n", "");
+            x = x.Replace(" \n", "");
+            x = x.Replace("<br>", "");
+
+            if(x == "")
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+
         }
 
         //check for any event attachments, and if there are any, add them to the layout. 
@@ -67,7 +91,22 @@ namespace Prototype.Calendar
 
         public void OnCalAdd(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri(thisEvent.GetCalAddLink()));
+            string tempId = calId;
+
+            if (calId.Contains("@"))
+            {
+                tempId = calId.Replace("@", "%40");
+            }
+            string eid = thisEvent.Link.Split('=')[1];
+
+            //Currently opens event in native web browser (desktop version). This must happen because of Google/Android current bug that
+            //results in an "Event Not Found" error if the event is opened in the Google Calendar App. Once the bug is resolved, then this
+            //can be changed by replacing "render?" with "event?"
+            //Debug.WriteLine("https://calendar.google.com/render?action=TEMPLATE&tmeid=" + eid + "&tmsrc=" + tempId);
+
+            Device.OpenUri(new Uri("https://calendar.google.com/render?action=TEMPLATE&tmeid=" + eid + "&tmsrc=" + tempId));
+
+
         }
 
         async void OnNavigate(object sender, EventArgs e)

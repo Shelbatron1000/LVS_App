@@ -6,7 +6,7 @@
     <ContentPage.Content>
     <ScrollView>
         <StackLayout Padding="10">
-            <Label Text=" " BackgroundColor="Green"/>
+                <Label Text=" " BackgroundColor="#7BC844" HeightRequest="2"/>
             <Label x:Name="TeacherName" FontSize="Large" 
                 HorizontalTextAlignment="Center"/>
             <Label 
@@ -31,7 +31,7 @@
                 HorizontalTextAlignment="Center"/>
             <Label x:Name="TeacherNotes" FontSize="Medium"
                 HorizontalTextAlignment="Center"/>
-            <Label Text=" " BackgroundColor="Green"/>
+                <Label Text=" " BackgroundColor="#7BC844" HeightRequest="2"/>
                 <Button x:Name="AppButton" Text="Make an Appointment"
                     Clicked="ToGenBook"/>
         </StackLayout>

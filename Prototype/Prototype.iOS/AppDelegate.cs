@@ -41,7 +41,7 @@ namespace Prototype.iOS
 
             //change colors of Navigation Bar
             UINavigationBar.Appearance.TintColor = UIColor.White;
-            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(51, 153, 255);
+            UINavigationBar.Appearance.BarTintColor = UIColor.FromRGB(54, 182, 229);
             UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes() { TextColor = UIColor.White });
 
             UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, false);

@@ -9,13 +9,19 @@ namespace Prototype.Calendar
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CalendarPage : ContentPage
     {
-        Calendar myCalendar = new Calendar("AIzaSyCUveAaJAyfqBoQUA0Z7iJXg4xQb8DHCG8", "LVIP-App", "shelbatron1000@gmail.com");
+        Calendar myCalendar; // add code here
         public string calId;
         private double width;
         private double height;
         public CalendarPage()
         {
             InitializeComponent();
+            calId = myCalendar.calendarId;
+
+            //Customizing background color
+            MonthViewSettings monthViewSettings = new MonthViewSettings();
+            monthViewSettings.TodayBackground = Color.FromHex("#36b6e5");
+            cal.MonthViewSettings = monthViewSettings;
 
             Task.Run(() =>
             {
@@ -24,11 +30,8 @@ namespace Prototype.Calendar
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     cal.DataSource = myCalendar.Events;
-                    calId = myCalendar.calendarId;
                 });
-
             });
-
         }
 
         void Schedule_MonthInlineAppointmentTapped(object sender, MonthInlineAppointmentTappedEventArgs e)
@@ -36,7 +39,7 @@ namespace Prototype.Calendar
             var appointment = (e.Appointment as CalendarEvent);
 
             //Push the next page onto the Nav stack, pass it the appointment object
-            CalendarEventDetails newPage = new CalendarEventDetails(appointment);
+            CalendarEventDetails newPage = new CalendarEventDetails(appointment, myCalendar.calendarId);
             Navigation.PushAsync(newPage);
         }
 
@@ -51,14 +54,18 @@ namespace Prototype.Calendar
                 {
                     Debug.WriteLine("Horizontal");
                     Device.BeginInvokeOnMainThread(() =>
-                    {                     
+                    {
                         /* Switching to Week View
                          * 
                          * Current Bug on Week View: All Day Events show up as an extra day long.
                          * Should not be programmed to subtract a day in datetime because the overall standard
                          * is that all day events are from one day at 0:0:0 to the next day at 0:0:0.
                          * 
-                         * Waiting on SyncFusion to fix this bug...
+                         * SyncFusion says this bug should be fixed in their update at the end of May 2018 so 
+                         * please update the NuGet package then.
+                         * 
+                         * https://www.syncfusion.com/forums/137099/all-day-event-rendering-as-two-days-in-week-view
+                         * 
                          */
 
                         cal.ScheduleView = ScheduleView.WeekView;
@@ -101,7 +108,7 @@ namespace Prototype.Calendar
             if (cal.ScheduleView == ScheduleView.WeekView && appointment != null)
             {
                 //Push the next page onto the Nav stack, pass it the appointment object
-                CalendarEventDetails newPage = new CalendarEventDetails(appointment);
+                CalendarEventDetails newPage = new CalendarEventDetails(appointment, calId);
                 Navigation.PushAsync(newPage);
 
             }

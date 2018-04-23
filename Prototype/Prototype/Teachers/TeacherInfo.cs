@@ -55,11 +55,11 @@ namespace Prototype
         {
             var service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
             { 
-                ApiKey ="AIzaSyCUveAaJAyfqBoQUA0Z7iJXg4xQb8DHCG8",
-                ApplicationName = "LVIP-App"                  
+                ApiKey = "", //add code here
+                ApplicationName = "" //add code here
             });
-            string spreadSheetID = "1p12TY2VxI-6lDQENnQ8atwmr7vlqhodmDtByqXfpSyU";
-            SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadSheetID, "Sheet1!A2:F");
+            string spreadSheetID = "";//add code here
+            SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadSheetID, "Sheet1");
             ValueRange response = request.Execute();
             IList<IList<Object>> values = response.Values;
             if (values !=null && values.Count >0)

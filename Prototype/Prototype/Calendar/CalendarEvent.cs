@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Google.Apis.Calendar.v3.Data;
+using Xamarin.Forms;
 
 namespace Prototype.Calendar
 {
@@ -16,9 +18,10 @@ namespace Prototype.Calendar
         public IList<EventAttachment> Attachments { get; set; }
         public string Link { get; set; }
         public string Id { get; set; }
+        public Color Color { get; set; }
 
         public CalendarEvent(string summary, string description, string location,  EventDateTime startTime, 
-            EventDateTime endTime, string iCal, IList<EventAttachment> attachments, string link, string id)
+            EventDateTime endTime, string iCal, IList<EventAttachment> attachments, string link, string id, Color color)
         {
             if (summary != null)
             {
@@ -78,6 +81,7 @@ namespace Prototype.Calendar
             Attachments = attachments;
             Link = link;
             Id = id;
+            Color = color;
         }
 
         public string GetTimeString()
@@ -116,23 +120,6 @@ namespace Prototype.Calendar
             }
 
             return time;
-        }
-
-        public string GetCalAddLink()
-        {
-            string tempId = Id;
-
-            if (Id.Contains("@"))
-            {
-                tempId = Id.Replace("@", "%40");
-            }
-            string eid = Link.Split('=')[1];
-
-            //Currently opens event in native web browser (desktop version). This must happen because of Google/Android current bug that
-            //results in an "Event Not Found" error if the event is opened in the Google Calendar App. Once the bug is resolved, then this
-            //can be changed by replacing "render?" with "event?"
-            return "https://calendar.google.com/render?action=TEMPLATE&tmeid=" + eid + "&tmsrc=" + tempId;
-
         }
     }
 }

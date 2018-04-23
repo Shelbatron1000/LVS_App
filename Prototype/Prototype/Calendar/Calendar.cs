@@ -40,10 +40,12 @@ namespace Prototype.Calendar
 
             if (events.Items != null && events.Items.Count > 0)
             {
+                //Color is a private property so it cannot be accessed in the public Google Calendar.
+                //Colors are being set to the app theme color here.
                 foreach (var eventItem in events.Items)
                 {
                     Events.Add(new CalendarEvent(eventItem.Summary, eventItem.Description, eventItem.Location,  
-                        eventItem.Start, eventItem.End, eventItem.ICalUID, eventItem.Attachments, eventItem.HtmlLink, eventItem.Id));
+                        eventItem.Start, eventItem.End, eventItem.ICalUID, eventItem.Attachments, eventItem.HtmlLink, eventItem.Id, Xamarin.Forms.Color.FromHex("#36b6e5")));
                 }
             }
             
