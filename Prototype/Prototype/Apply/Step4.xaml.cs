@@ -4,12 +4,22 @@ using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Text;
+using System.Net.Http.Headers;
+using System.Linq;
 
 namespace Prototype.Apply
 {
     public partial class Step4 : ContentPage
     {
         StudentApp Application = new StudentApp();
+        ApplicationForAPI APIapp;
+
+        //These 2 strings are for the WEB API connectivity
+        string address = "";
+        string key = "";
 
         public Step4(StudentApp Application)
         {
@@ -78,7 +88,7 @@ namespace Prototype.Apply
         {
             if (Q6Response.Text != null)
             {
-                var temp = Q6Response.Text.Split('/');
+                var temp = Q6Response.Text.Split('-');
                 Q6Response.Text = "";
                 foreach (string part in temp)
                 {
@@ -91,28 +101,30 @@ namespace Prototype.Apply
         void InsertInfo()
         {
             EligibilityQuestions eQ = new EligibilityQuestions {
-                EQResponse1 = YesOrNo(Q1ResponseSwitch),
-                EQResponse2 = YesOrNo(Q2ResponseSwitch),
-                EQResponse3 = YesOrNo(Q3ResponseSwitch),
-                EQResponse4 = YesOrNo(Q4ResponseSwitch),
-                EQResponse8 = YesOrNo(Q8ResponseSwitch)
+                eqResponse1 = YesOrNo(Q1ResponseSwitch),
+                eqResponse2 = YesOrNo(Q2ResponseSwitch),
+                eqResponse3 = YesOrNo(Q3ResponseSwitch),
+                eqResponse4 = YesOrNo(Q4ResponseSwitch),
+                eqResponse8 = YesOrNo(Q8ResponseSwitch)
             };
             if(Q4ResponseSwitch.IsToggled && Q5Response != null)
             {
-                eQ.EQResponse5 = Q5Response.Text;
+                eQ.eqResponse5 = Q5Response.Text;
             }
             if (Q4ResponseSwitch.IsToggled && Q6Response != null)
             {
-                eQ.EQResponse6 = Q6Response.Text;
+                eQ.eqResponse6 = SwapDate(Q6Response.Text);
             }
-            eQ.EQResponse7 = Q7Response.Text;
+            eQ.eqResponse7 = Q7Response.Text;
             Application.Questions = eQ;
             
             //At this point the entire application object should be built throughout all of the steps
         }
 
-        void SubmitApplication(object sender, EventArgs e)
+        async void SubmitApplicationAsync(object sender, EventArgs e)
         {
+            //disabling the button so it can't be pressed twice
+            SubmitButton.IsEnabled = false;
             //input validation
             if (AnyFieldEmptyOrNull()) //if fields are empty
             {
@@ -121,10 +133,14 @@ namespace Prototype.Apply
 
             //inserting info from the GUI into the StudentApp object
             InsertInfo();
+            //all info is now inserted into the application object.
 
-            //converting the StudentApp object to a JSON object
-            var JSONApplication = JsonConvert.SerializeObject(Application);
-            Debug.WriteLine(JSONApplication);
+            //now create the proper format for the API
+            APIapp = new ApplicationForAPI(Application.Student, Application.LastSchool, Application.Guardian, Application.Questions);
+
+            //call RESTRequest to insert into database
+            await SendApplication();
+
         }
 
 
@@ -147,6 +163,54 @@ namespace Prototype.Apply
             }else{
                 return "NO";
             }
+        }
+
+        private string SwapDate(String date)
+        {
+            string newDate = "";
+            var temp = date.Split('/');
+            newDate = temp[2] + "-" + temp[0] + "-" + temp[1];
+            return newDate;
+        }
+
+        //This method will send the application object to the LVS Web API
+        async Task SendApplication()
+        {
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("x-access-token", key);
+            string JSONApp = JsonConvert.SerializeObject(APIapp);
+            var JSONDeSerialized = JsonConvert.DeserializeObject<Dictionary<string, string>>(JSONApp);
+            HttpContent content = new FormUrlEncodedContent(JSONDeSerialized);
+
+            HttpResponseMessage response = null;
+            Debug.WriteLine("Sending request..");
+
+            response = await client.PostAsync(address, content);
+            Debug.WriteLine("After request...");
+
+            if (response.IsSuccessStatusCode)
+            {
+                await DisplayAlert("Success", "Your application was submitted.", "OK");
+                Debug.WriteLine(response.ToString());
+                ChangeLayoutForSuccess();
+            }else{
+                await DisplayAlert("Failed to Submit Application", "Please try again or contact LVS", "OK");
+                Debug.WriteLine(response.ToString());
+                SubmitButton.IsEnabled = true;
+            }
+        }
+
+        void ChangeLayoutForSuccess()
+        {
+
+
+            MainStackLayout.Children.Clear();
+            Label successLabel = new Label();
+            successLabel.Text = "Thank you for applying to be a student at LVS.\nTap the Home or Menu Icons to continue.";
+            successLabel.FontSize = 36.00;
+            successLabel.HorizontalTextAlignment = TextAlignment.Center;
+            successLabel.VerticalOptions = LayoutOptions.CenterAndExpand;
+            MainStackLayout.Children.Add(successLabel);
         }
 
 
