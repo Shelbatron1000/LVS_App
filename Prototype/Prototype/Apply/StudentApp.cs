@@ -2,6 +2,19 @@
 using System.Collections.ObjectModel;
 namespace Prototype.Apply
 {
+    /* This class represents an entire application form that a student or guardian
+     * would fill out in order to have themselves or their child become a student
+     * at LVS. The team was given a sample application in PDF form and all of the 
+     * information on that PDF was used to create this class.
+     * The application is split up into four parts:
+     * 1. Student - the individual applying to become a LVS student.
+     * 2. SchoolInfo - Information about the last school that the individual
+     *    attended as well as the grade for which they are applying to enter.
+     * 3. Guardian - information for the parent or guardian of the student applying.
+     * 4. EligibilityQuestions - These are answers to the additional questions 
+     *    that were on the PDF application that we were provided.
+     */
+
     public class StudentApp
     {
         public Student Student { get; set; }
@@ -17,48 +30,48 @@ namespace Prototype.Apply
 
     public class Student
     {
-        public string EnrollType { get; set; }
-        public string StudentID { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public string DOB { get; set; }
-        public string StreetAddress { get; set; }
-        public string UnitNumber { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string ZipCode { get; set; }
-        public string PhoneNumber { get; set; }
-        public string PhoneType { get; set; }
-        public string StudentEmail { get; set; } 
+        public string enrollType { get; set; }
+        public string studentID { get; set; }
+        public string lastName { get; set; }
+        public string firstName { get; set; }
+        public string middleName { get; set; }
+        public string dateOfBirth { get; set; }
+        public string streetAddress { get; set; }
+        public string unitNumber { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }
+        public string zipCode { get; set; }
+        public string phoneNumber { get; set; }
+        public string phoneType { get; set; }
+        public string studentEmail { get; set; } 
     }
     public class SchoolInfo
     {
-        public string SchoolName { get; set; }
-        public string Grade { get; set; }
-        public string District { get; set; }
-        public string County { get; set; }
-        public string State { get; set; }
+        public string schoolName { get; set; }
+        public string grade { get; set; }
+        public string district { get; set; }
+        public string county { get; set; }
+        public string districtState { get; set; }
     }
     public class Guardian
     {
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string GuardianPhoneNumber { get; set; }
-        public string GuardianPhoneType { get; set; }
-        public string EmailAddress { get; set; }
-        public string Relationship { get; set; }
+        public string guardianLastName { get; set; }
+        public string guardianFirstName { get; set; }
+        public string guardianPhoneNumber { get; set; }
+        public string guardianPhoneType { get; set; }
+        public string guardianEmailAddress { get; set; }
+        public string relationship { get; set; }
     }
     public class EligibilityQuestions
     {
-        public string EQResponse1 { get; set; }
-        public string EQResponse2 { get; set; }
-        public string EQResponse3 { get; set; }
-        public string EQResponse4 { get; set; }
-        public string EQResponse5 { get; set; }
-        public string EQResponse6 { get; set; }
-        public string EQResponse7 { get; set; }
-        public string EQResponse8 { get; set; }
+        public string eqResponse1 { get; set; }
+        public string eqResponse2 { get; set; }
+        public string eqResponse3 { get; set; }
+        public string eqResponse4 { get; set; }
+        public string eqResponse5 { get; set; }
+        public string eqResponse6 { get; set; }
+        public string eqResponse7 { get; set; }
+        public string eqResponse8 { get; set; }
 
     }
 

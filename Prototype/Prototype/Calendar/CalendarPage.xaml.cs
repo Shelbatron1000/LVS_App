@@ -1,15 +1,15 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Syncfusion.SfSchedule.XForms;
 using System.Diagnostics;
-
+//using UIKit;
 namespace Prototype.Calendar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CalendarPage : ContentPage
     {
-        Calendar myCalendar; // add code here
+        Calendar myCalendar;
         public string calId;
         private double width;
         private double height;

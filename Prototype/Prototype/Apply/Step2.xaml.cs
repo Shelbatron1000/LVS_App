@@ -11,6 +11,15 @@ namespace Prototype.Apply
 
         public Step2(StudentApp Application)
         {
+            /* In this constructor the first thing that happens is setting the 
+            * application object that was passed from the previous page equal to
+            * the application object declared in this class.
+            * The InitializeComponent() method is required to load any UI page.
+            * The 4 lines of code after the InitializeComponent call are all 
+            * used to set up the information that will be displayed in the Picker
+            * objects in the UI. Data binding is used to connect the 
+            * ObservableCollection<string> objects to the Picker objects in the UI.
+            */
             this.Application = Application;
             InitializeComponent();
             ObservableCollection<string> StateAbv = BuildStatesList();
@@ -18,6 +27,9 @@ namespace Prototype.Apply
             GradePicker.ItemsSource = Grade;
             StatePicker.ItemsSource = StateAbv;
         }
+        /*
+         * A default constructor is required, even if it is never called.
+        */
         public Step2()
         {
             InitializeComponent();
@@ -32,7 +44,6 @@ namespace Prototype.Apply
             }
             else
             {
-                //validate certain fields
 
                 //call insert info
                 InsertInfo();
@@ -43,6 +54,14 @@ namespace Prototype.Apply
             }
         }
 
+        /*
+        * The following method is used to check each Entry or Picker in the UI
+        * for content. It calls the EmptyOrNull method from the InputValidation
+        * object to determine if the Entry or Picker contains an empty string or
+        * is still null from never being manipulated. The method returns true 
+        * if a field is either empty or still null. If all of the fields in the
+        * IF clause are filled with a string it will return false.
+        */
         public bool AnyFieldEmptyOrNull()
         {
             InputValidation validate = new InputValidation();
@@ -57,18 +76,30 @@ namespace Prototype.Apply
             return false;
         }
 
+        /*
+         * The following method is used to take the information entered into the UI
+         * and insert it into the application object. This method creates a new 
+         * SchoolInfo object and takes each field from the UI and sets the corresponding
+         * field of the object equal to the information entered. The method lastly
+         * sets the SchoolInfo object belonging to the Application object equal to 
+         * this newly created SchoolInfo.
+        */
         void InsertInfo()
         {
             SchoolInfo schoolInfo = new SchoolInfo { 
-                SchoolName = SchoolName.Text,
-                District = SchoolDistrict.Text,
-                County = SchoolCounty.Text,
-                State = StatePicker.SelectedItem.ToString(),
-                Grade = GradePicker.SelectedItem.ToString()
+                schoolName = SchoolName.Text,
+                district = SchoolDistrict.Text,
+                county = SchoolCounty.Text,
+                districtState = StatePicker.SelectedItem.ToString(),
+                grade = GradePicker.SelectedItem.ToString()
             };
             Application.LastSchool = schoolInfo;
         }
 
+        /*
+        * The following method builds a list of all grade levels so that they 
+        * can be bound to the corresponding Picker object in the UI.
+        */
         public ObservableCollection<string> BuildGradeList()
         {
             ObservableCollection<string> Grades = new ObservableCollection<string>
@@ -91,7 +122,10 @@ namespace Prototype.Apply
             return Grades;
         }
 
-
+        /*
+        * The following method builds a list of all of the state abbreviations
+        * so that they can be bound to the corresponding Picker object in the UI.
+        */
         public ObservableCollection<string> BuildStatesList()
         {
             ObservableCollection<string> States = new ObservableCollection<string>

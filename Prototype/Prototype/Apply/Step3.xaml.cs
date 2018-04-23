@@ -8,6 +8,16 @@ namespace Prototype.Apply
     public partial class Step3 : ContentPage
     {
         StudentApp Application = new StudentApp();
+
+        /* In this constructor the first thing that happens is setting the 
+        * application object that was passed from the previous page equal to
+        * the application object declared in this class.
+        * The InitializeComponent() method is required to load any UI page.
+        * The 7 lines of code after the InitializeComponent call are all 
+        * used to set up the information that will be displayed in the Picker
+        * objects in the UI. Data binding is used to connect the 
+        * ObservableCollection<string> objects to the Picker objects in the UI.
+        */
         public Step3(StudentApp Application)
         {
             this.Application = Application;
@@ -20,6 +30,9 @@ namespace Prototype.Apply
             };
             PhoneTypePicker.ItemsSource = Types;
         }
+        /*
+         * A default constructor is required, even if it is never called.
+        */
         public Step3()
         {
             InitializeComponent();
@@ -49,12 +62,20 @@ namespace Prototype.Apply
                 //call insert info
                 InsertInfo();
 
-                //Push the next page, Step3, onto the Nav stack, pass it the Application object that was created here.
+                //Push the next page, Step4, onto the Nav stack, pass it the Application object that was created here.
                 Apply.Step4 newPage = new Apply.Step4(Application);
                 Navigation.PushAsync(newPage);
             }
         }
 
+        /*
+        * The following method is used to check each Entry or Picker in the UI
+        * for content. It calls the EmptyOrNull method from the InputValidation
+        * object to determine if the Entry or Picker contains an empty string or
+        * is still null from never being manipulated. The method returns true 
+        * if a field is either empty or still null. If all of the fields in the
+        * IF clause are filled with a string it will return false.
+        */
         public bool AnyFieldEmptyOrNull(InputValidation validate)
         {
             if (validate.EmptyorNull(GuardianFirstName) ||
@@ -72,12 +93,12 @@ namespace Prototype.Apply
         void InsertInfo()
         {
             Guardian guardian = new Guardian {
-                FirstName = GuardianFirstName.Text,
-                LastName = GuardianLastName.Text,
-                Relationship = GuardianRelationship.Text,
-                GuardianPhoneNumber = GuardianPhoneNumber.Text,
-                GuardianPhoneType = PhoneTypePicker.SelectedItem.ToString(),
-                EmailAddress = GuardianEmail.Text
+                guardianFirstName = GuardianFirstName.Text,
+                guardianLastName = GuardianLastName.Text,
+                relationship = GuardianRelationship.Text,
+                guardianPhoneNumber = GuardianPhoneNumber.Text,
+                guardianPhoneType = PhoneTypePicker.SelectedItem.ToString(),
+                guardianEmailAddress = GuardianEmail.Text
             };
             Application.Guardian = guardian;
         }

@@ -55,10 +55,10 @@ namespace Prototype
         {
             var service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
             { 
-                ApiKey = "", //add code here
-                ApplicationName = "" //add code here
+                ApiKey = "",
+                ApplicationName = ""
             });
-            string spreadSheetID = "";//add code here
+            string spreadSheetID = "";
             SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadSheetID, "Sheet1");
             ValueRange response = request.Execute();
             IList<IList<Object>> values = response.Values;
