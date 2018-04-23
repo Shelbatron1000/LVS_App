@@ -55,11 +55,11 @@ namespace Prototype
         {
             var service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyAaHEj4BFh8CxmczhLokH4QDsRYa1smV5g",
-                ApplicationName = "lee-virtual-mobile"
+                ApiKey = "",
+                ApplicationName = ""
 
             });
-            string spreadSheetID = "1XCayVZlGxZp7rnQ0k3cZ1JkTmXltTQc1t-9rggR_A08";
+            string spreadSheetID = "";
             SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadSheetID, "Sheet1!A2:F");
             ValueRange response = request.Execute();
             IList<IList<Object>> values = response.Values;
@@ -71,9 +71,9 @@ namespace Prototype
                     bool minIsFilled = false;
 
                     //check that minimum fields are filled out
-                    if(row.Count >= 4)
+                    if(row.Count >= 5)
                     {
-                        if(row[0].ToString() != "" && row[1].ToString() != "" && row[2].ToString() != "" && row[3].ToString() != "")
+                        if(row[0].ToString() != "" && row[1].ToString() != "" && row[2].ToString() != "" && row[3].ToString() != "" && row[4].ToString() != "")
                         {
                             minIsFilled = true;
                         }
