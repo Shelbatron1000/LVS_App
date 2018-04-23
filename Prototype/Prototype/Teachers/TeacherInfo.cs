@@ -54,35 +54,56 @@ namespace Prototype
         public void GetDataFromDrive()
         {
             var service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
-            { 
-                ApiKey = "",
-                ApplicationName = ""
+            {
+                ApiKey = "AIzaSyAaHEj4BFh8CxmczhLokH4QDsRYa1smV5g",
+                ApplicationName = "lee-virtual-mobile"
+
             });
-            string spreadSheetID = "";
-            SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadSheetID, "Sheet1");
+            string spreadSheetID = "1XCayVZlGxZp7rnQ0k3cZ1JkTmXltTQc1t-9rggR_A08";
+            SpreadsheetsResource.ValuesResource.GetRequest request = service.Spreadsheets.Values.Get(spreadSheetID, "Sheet1!A2:F");
             ValueRange response = request.Execute();
             IList<IList<Object>> values = response.Values;
             if (values !=null && values.Count >0)
             {
-                foreach(var row in values)
+                foreach (var row in values)
                 {
-                    Teacher temp = new Teacher(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString());
-                    if (temp.School.Equals("Elementary"))
+                    Teacher temp = new Teacher();
+                    bool minIsFilled = false;
+
+                    //check that minimum fields are filled out
+                    if(row.Count >= 4)
                     {
-                        elemTeachData.Add(temp);
+                        if(row[0].ToString() != "" && row[1].ToString() != "" && row[2].ToString() != "" && row[3].ToString() != "")
+                        {
+                            minIsFilled = true;
+                        }
                     }
-                    else if (temp.School.Equals("Secondary"))
+
+                    if (minIsFilled) // if minimum fields are filled out, proceed with adding to collections
                     {
-                        secTeachData.Add(temp);
-                    }
+                        if (row.Count == 5) //minimum fields filled out
+                        {
+                            temp = new Teacher(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), "");
+
+                        }
+                        else if (row.Count == 6) //all fields filled out
+                        {
+                            temp = new Teacher(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString());
+                        }
+
+                        //If the Elementary or Secondary is not defined in the Google Sheet, the Teacher object will NOT be added to either collection
+                        if (temp.School.Equals("Elementary"))
+                        {
+                            elemTeachData.Add(temp);
+                        }
+                        else if (temp.School.Equals("Secondary"))
+                        {
+                            secTeachData.Add(temp);
+                        }
+                    } //end minIsField if
                 }
             }
         }
-
-
-
-
-
 
         public struct Teacher
         {
