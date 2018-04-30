@@ -3,7 +3,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Syncfusion.SfSchedule.XForms;
 using System.Diagnostics;
-//using UIKit;
 namespace Prototype.Calendar
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -34,6 +33,17 @@ namespace Prototype.Calendar
             });
         }
 
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            (App.Current.MainPage as MasterDetailPage).IsGestureEnabled = true;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            (App.Current.MainPage as MasterDetailPage).IsGestureEnabled = false;
+        }
         void Schedule_MonthInlineAppointmentTapped(object sender, MonthInlineAppointmentTappedEventArgs e)
         {
             var appointment = (e.Appointment as CalendarEvent);
